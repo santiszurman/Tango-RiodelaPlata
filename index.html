@@ -426,4 +426,79 @@
   }
 
   // ===== DATOS DE PROPIEDADES (placeholder — reemplazar fotos/textos por los reales) =====
-  con
+  const W='https://static.wixstatic.com/media/';
+  const T=(id)=>W+id+'/v1/fill/w_1000,h_700,al_c,q_85,enc_avif,quality_auto/'+id;
+  const U=(id)=>'https://images.unsplash.com/'+id+'?auto=format&fit=crop&w=1000&q=80';
+
+  const DATA={
+    campos:{
+      eyebrow:{es:'Campos & Estancias',en:'Farms & Estates'},
+      title:{es:'Campos & Estancias',en:'Farms & Estates'},
+      loc:{es:'Argentina & Uruguay',en:'Argentina & Uruguay'},
+      imgs:[U('photo-1500076656116-558758c991c1'),U('photo-1464822759023-fed622ff2c3b'),U('photo-1444858345149-8c9f8b2c4d40'),U('photo-1500382017468-9049fed747ef')],
+      body:{es:'<p>Activos agropecuarios y ganaderos en las regiones más productivas de Argentina y Uruguay. Campos para producción, inversión o lifestyle, con análisis de renta, aptitud de suelo y potencial de valorización.</p><ul><li>Producción agrícola, ganadera y forestal</li><li>Due diligence catastral, ambiental y de títulos</li><li>Estructuración fiscal para no residentes</li></ul>',
+            en:'<p>Agricultural and livestock land in the most productive regions of Argentina and Uruguay. Land for production, investment or lifestyle, with yield analysis, soil suitability and appreciation potential.</p><ul><li>Agricultural, livestock and forestry production</li><li>Cadastral, environmental and title due diligence</li><li>Tax structuring for non-residents</li></ul>'},
+      note:{es:'Imágenes de referencia. Pasanos tus fotos reales para reemplazarlas.',en:'Reference images. Send us your real photos to replace them.'}
+    },
+    chacras:{
+      eyebrow:{es:'Chacras',en:'Country Estates'},
+      title:{es:'Chacras boutique',en:'Boutique Country Estates'},
+      loc:{es:'Garzón · Punta del Este · José Ignacio',en:'Garzón · Punta del Este · José Ignacio'},
+      imgs:[U('photo-1505691938895-1758d7feb511'),U('photo-1564013799919-ab600027ffc6'),U('photo-1502005229762-cf1b2da7c5d6'),U('photo-1613490493576-7fde63acd811')],
+      body:{es:'<p>Chacras boutique con casa de campo en las zonas de mayor demanda del este uruguayo. Combinan disfrute, naturaleza y un activo que se valoriza, cerca de bodegas y de la costa.</p><ul><li>Casa principal, piscina y parque</li><li>Hectáreas con potencial de viñedo u olivar</li><li>Gestión y mantenimiento post-compra</li></ul>',
+            en:'<p>Boutique country estates with a country home in the most sought-after areas of eastern Uruguay. They combine enjoyment, nature and an appreciating asset, close to wineries and the coast.</p><ul><li>Main house, pool and grounds</li><li>Hectares with vineyard or olive-grove potential</li><li>Post-purchase management and maintenance</li></ul>'},
+      note:{es:'Imágenes de referencia. Pasanos tus fotos reales para reemplazarlas.',en:'Reference images. Send us your real photos to replace them.'}
+    },
+    lujo:{
+      eyebrow:{es:'Propiedades de Lujo',en:'Luxury Residences'},
+      title:{es:'Residencias premium',en:'Premium Residences'},
+      loc:{es:'Buenos Aires · Punta del Este',en:'Buenos Aires · Punta del Este'},
+      imgs:[U('photo-1613977257363-707ba9348227'),U('photo-1600596542815-ffad4c1539a9'),U('photo-1600585154340-be6161a56a0c'),U('photo-1512917774080-9991f1c4c750')],
+      body:{es:'<p>Residencias premium en las mejores ubicaciones de Buenos Aires y Punta del Este. Departamentos y casas de alta gama, seleccionados por ubicación, calidad constructiva y potencial de reventa.</p><ul><li>Pisos y casas en barrios premium</li><li>Acceso a oportunidades off-market</li><li>Estructuración de compra y residencia</li></ul>',
+            en:'<p>Premium residences in the finest locations of Buenos Aires and Punta del Este. High-end apartments and houses, selected for location, build quality and resale potential.</p><ul><li>Apartments and houses in premium neighborhoods</li><li>Access to off-market opportunities</li><li>Purchase and residency structuring</li></ul>'},
+      note:{es:'Imágenes de referencia. Pasanos tus fotos reales para reemplazarlas.',en:'Reference images. Send us your real photos to replace them.'}
+    },
+    tertulia:{
+      eyebrow:{es:'Caso de Estudio',en:'Case Study'},
+      title:{es:'La Tertulia',en:'La Tertulia'},
+      loc:{es:'Garzón, Maldonado — Uruguay',en:'Garzón, Maldonado — Uruguay'},
+      imgs:[
+        T('9c06de_0c34df9bc906400da5c4d0f059ff231cf000.jpg'),
+        T('9c06de_09426cdd78cc49818e07769fb86a608d~mv2.jpg'),
+        T('aad265_0e8a7574cc364271b03433942b3b2c6c~mv2.jpeg'),
+        T('4f91a6_88324507807a4b749eea6b3e8f10dedc~mv2.jpg'),
+        T('4f91a6_909649dcbe154b6c9b6ffeed741ff4a3~mv2.jpg'),
+        T('aad265_cadbba6cfddd45f4be04d0d2c6c186c8~mv2.jpg')
+      ],
+      body:{es:'<p>Mansión de 800 m² sobre 107 hectáreas a 10 minutos de Garzón, con vistas panorámicas 360°, piscina y senderos privados. Una propiedad emblemática acompañada de punta a punta por Tango Holding.</p><ul><li>107 hectáreas · Mansión de 800 m²</li><li>Vistas 360°, piscina y naturaleza</li><li>Zona Bodega Garzón — alto potencial de valorización</li></ul>',
+            en:'<p>800 m² mansion on 107 hectares, 10 minutes from Garzón, with 360° panoramic views, a pool and private trails. A landmark property guided end-to-end by Tango Holding.</p><ul><li>107 hectares · 800 m² mansion</li><li>360° views, pool and nature</li><li>Bodega Garzón area — strong appreciation potential</li></ul>'},
+      note:{es:'Fotos: latertulia.online',en:'Photos: latertulia.online'}
+    }
+  };
+
+  function curLang(){return document.body.classList.contains('en')?'en':'es';}
+  let currentKey=null;
+
+  function openLB(key){
+    currentKey=key;
+    renderLB();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function renderLB(){
+    const d=DATA[currentKey]; if(!d)return; const L=curLang();
+    document.getElementById('lb-imgs').innerHTML=d.imgs.map(u=>'<div class="li" style="background-image:url('+u+')"></div>').join('');
+    document.getElementById('lb-eyebrow').textContent=d.eyebrow[L];
+    document.getElementById('lb-title').textContent=d.title[L];
+    document.getElementById('lb-loc').textContent=d.loc[L];
+    document.getElementById('lb-content').innerHTML=d.body[L];
+    document.getElementById('lb-note').textContent=d.note[L];
+  }
+  function closeLB(){
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();});
+</script>
+</body>
+</html>

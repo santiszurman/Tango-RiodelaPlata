@@ -62,6 +62,7 @@
   .pointlist li::before{content:'';position:absolute;left:0;top:21px;width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
 
   .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .cards-3{grid-template-columns:repeat(3,1fr)}
   .card{background:var(--paper);padding:40px 36px}
   .bg-cream .card{background:var(--cream)}
   .card .klabel{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700}
@@ -170,10 +171,10 @@
 <body class="en">
 
 <nav>
-  <div class="brand">
-    <span class="b1">Tango Holding</span>
-    <span class="b2">Río de la Plata</span>
-  </div>
+  <a href="#top" class="brand" style="text-decoration:none">
+    <img src="https://static.wixstatic.com/media/405a64_0b047cf0383a4c8b8d655b88d3b5a738~mv2.png/v1/fill/w_205,h_35,al_c,lg_1,q_85,enc_avif,quality_auto/logo-tango-horizontal%202.png" alt="Tango Holding" style="height:30px;width:auto;display:block">
+    <span class="b2" style="font-size:.82rem;letter-spacing:.18em;color:var(--gold-light);margin-top:5px;font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase">Río de la Plata</span>
+  </a>
   <div class="navlinks">
     <a href="#oportunidad"><span data-es>Oportunidad</span><span data-en>Opportunity</span></a>
     <a href="#servicios"><span data-es>Servicios</span><span data-en>Services</span></a>
@@ -236,21 +237,16 @@
       <div class="eyebrow"><span data-es>A Quién Servimos</span><span data-en>Who We Serve</span></div>
       <h2><span data-es>Un cliente, un interlocutor</span><span data-en>One client, one point of contact</span></h2>
     </div>
-    <div class="cards">
+    <div class="cards cards-3">
       <div class="card">
-        <div class="klabel"><span data-es>Familias Europeas</span><span data-en>European Families</span></div>
-        <h3><span data-es>Diversificación y residencia</span><span data-en>Diversification & residency</span></h3>
-        <p><span data-es>Patrimonio neto &gt; USD 2M de Suiza, Italia, Alemania y España, buscando una base segura en el hemisferio sur.</span><span data-en>Net worth &gt; USD 2M from Switzerland, Italy, Germany and Spain, seeking a secure base in the southern hemisphere.</span></p>
+        <div class="klabel"><span data-es>Familias Europeas y de EE.UU.</span><span data-en>European &amp; U.S. Families</span></div>
+        <h3><span data-es>Diversificación y lifestyle</span><span data-en>Diversification & lifestyle</span></h3>
+        <p><span data-es>Familias de Suiza, Italia, Alemania y España, y clientes de Tango Holding en EE.UU., que buscan diversificar fuera de su mercado, una base segura en el hemisferio sur y activos lifestyle: estancias y chacras boutique.</span><span data-en>Families from Switzerland, Italy, Germany and Spain, and Tango Holding's U.S. clients, looking to diversify beyond their home market, secure a base in the southern hemisphere and own lifestyle assets: estates and boutique ranches.</span></p>
       </div>
       <div class="card">
         <div class="klabel"><span data-es>Family &amp; Multifamily Offices</span><span data-en>Family &amp; Multifamily Offices</span></div>
         <h3><span data-es>Activos alternativos sólidos</span><span data-en>Solid alternative assets</span></h3>
         <p><span data-es>Requieren due diligence riguroso y estructuras legales sólidas, con baja correlación a mercados financieros.</span><span data-en>Requiring rigorous due diligence and robust legal structures, with low correlation to financial markets.</span></p>
-      </div>
-      <div class="card">
-        <div class="klabel"><span data-es>HNW de EE.UU.</span><span data-en>U.S. HNW Individuals</span></div>
-        <h3><span data-es>Lifestyle + activo real</span><span data-en>Lifestyle + real asset</span></h3>
-        <p><span data-es>Clientes de Tango Holding en real estate USA, con perfil de co-inversión o segunda propiedad: estancias y chacras boutique.</span><span data-en>Tango Holding clients in U.S. real estate, with a co-investment or second-home profile: estates and boutique ranches.</span></p>
       </div>
       <div class="card">
         <div class="klabel"><span data-es>Vinculación Cultural</span><span data-en>Cultural Ties</span></div>
@@ -362,7 +358,7 @@
       <h2><span data-es>Nuestra ventaja diferencial</span><span data-en>Our edge</span></h2>
     </div>
     <div class="services">
-      <div class="svc"><h3><span data-es>15 años de track record</span><span data-en>15-year track record</span></h3><p><span data-es>Experiencia comprobada asesorando familias en real estate internacional, ahora en el Río de la Plata.</span><span data-en>Proven experience advising families in international real estate, now in the Río de la Plata.</span></p></div>
+      <div class="svc"><h3><span data-es>15 años de track record</span><span data-en>15-year track record</span></h3><p><span data-es>Experiencia comprobada asesorando familias en real estate internacional.</span><span data-en>Proven experience advising families in international real estate.</span></p></div>
       <div class="svc"><h3><span data-es>Red de contactos exclusivos</span><span data-en>Exclusive network</span></h3><p><span data-es>Diplomáticos, family offices y bancos privados europeos. Socios locales de primer nivel en BA y Montevideo.</span><span data-en>Diplomats, family offices and European private banks. Top-tier local partners in BA and Montevideo.</span></p></div>
       <div class="svc"><h3><span data-es>100% del lado del comprador</span><span data-en>100% buyer-side</span></h3><p><span data-es>No representamos vendedores ni desarrolladores. Sin conflictos de interés.</span><span data-en>We don't represent sellers or developers. No conflicts of interest.</span></p></div>
       <div class="svc"><h3><span data-es>Ecosistema completo</span><span data-en>Full ecosystem</span></h3><p><span data-es>Legal, contable, arquitectura, mantenimiento — todo coordinado por un solo interlocutor.</span><span data-en>Legal, accounting, architecture, maintenance — all coordinated by a single point of contact.</span></p></div>
@@ -380,16 +376,16 @@
         <h2><span data-es>Empecemos a construir juntos.</span><span data-en>Let's start building together.</span></h2>
         <p><span data-es>Una llamada inicial de 30 minutos para entender tus objetivos y el perfil del inversor. Sin compromiso.</span><span data-en>An initial 30-minute call to understand your goals and investor profile. No commitment.</span></p>
         <div class="info">
-          Martín · Tango Holding<br>
-          martin@tangoholding.com<br>
           www.tangoholding.com
         </div>
       </div>
-      <form onsubmit="return false">
-        <input type="text" placeholder="Nombre / Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="text" placeholder="País / Country">
-        <textarea rows="4" placeholder="¿En qué podemos ayudarte? / How can we help?"></textarea>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?enviado=ok">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none"><label>No llenar: <input name="bot-field"></label></p>
+        <input type="text" name="name" placeholder="Nombre / Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="country" placeholder="País / Country">
+        <textarea name="message" rows="4" placeholder="¿En qué podemos ayudarte? / How can we help?"></textarea>
         <button type="submit" class="btn btn-gold" style="justify-self:start"><span data-es>Enviar consulta</span><span data-en>Send inquiry</span></button>
       </form>
     </div>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tango | Río de la Plata — Private Wealth Real Estate</title>
+<style>
+  :root{
+    --forest:#1f3a2e;--forest-deep:#162a21;--forest-soft:#2c4a3b;
+    --gold:#c5a572;--gold-light:#d9c39c;--cream:#f6f3ec;--paper:#fbfaf6;
+    --ink:#1a1a17;--muted:#6f6f66;--line:rgba(31,58,46,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+  .sans{font-family:'Helvetica Neue',Arial,sans-serif}
+  h1,h2,h3{font-weight:normal;letter-spacing:.01em}
+  .eyebrow{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;background:rgba(22,42,33,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(197,165,114,.18)}
+  .brand{display:flex;flex-direction:column;line-height:1.1}
+  .brand .b1{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.66rem;letter-spacing:.32em;color:var(--gold);text-transform:uppercase}
+  .brand .b2{color:#fff;font-size:1.15rem;letter-spacing:.02em}
+  .navlinks{display:flex;gap:30px;align-items:center}
+  .navlinks a{font-family:'Helvetica Neue',Arial,sans-serif;color:rgba(255,255,255,.78);text-decoration:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;transition:.2s}
+  .navlinks a:hover{color:var(--gold)}
+  .langtoggle{display:flex;border:1px solid rgba(197,165,114,.4);border-radius:30px;overflow:hidden}
+  .langtoggle button{background:transparent;border:none;cursor:pointer;font-family:'Helvetica Neue',Arial,sans-serif;color:rgba(255,255,255,.7);font-size:.72rem;letter-spacing:.1em;padding:5px 13px;transition:.2s}
+  .langtoggle button.active{background:var(--gold);color:var(--forest-deep);font-weight:700}
+
+  header.hero{min-height:100vh;display:flex;align-items:center;position:relative;color:#fff;overflow:hidden;background:linear-gradient(rgba(18,34,27,.62),rgba(18,34,27,.78)),url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=80') center/cover}
+  .hero .wrap{padding-top:120px;padding-bottom:80px;max-width:980px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.05;margin-bottom:8px}
+  .hero h1 .gold{color:var(--gold-light);font-style:italic}
+  .hero .sub{font-size:clamp(1.05rem,2vw,1.4rem);color:rgba(255,255,255,.85);max-width:640px;margin:24px 0 38px;line-height:1.5}
+  .hero .meta{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .btn{display:inline-block;font-family:'Helvetica Neue',Arial,sans-serif;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:15px 34px;text-decoration:none;transition:.25s;cursor:pointer;border:none}
+  .btn-gold{background:var(--gold);color:var(--forest-deep);font-weight:700}
+  .btn-gold:hover{background:var(--gold-light)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.5);color:#fff;background:transparent;margin-left:14px}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+  section{padding:96px 0}
+  .section-head{max-width:760px;margin-bottom:54px}
+  .section-head h2{font-size:clamp(2rem,4vw,3rem);margin:14px 0 18px;color:var(--forest)}
+  .section-head p{color:var(--muted);font-size:1.12rem}
+  .bg-cream{background:var(--cream)}
+  .bg-forest{background:var(--forest);color:#fff}
+  .bg-forest .section-head h2{color:#fff}
+  .bg-forest .section-head p{color:rgba(255,255,255,.7)}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-bottom:48px}
+  .stat{border-top:2px solid var(--gold);padding-top:20px}
+  .stat .num{font-size:2.9rem;color:var(--forest);line-height:1}
+  .bg-forest .stat .num{color:var(--gold-light)}
+  .stat .lbl{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.4}
+  .bg-forest .stat .lbl{color:rgba(255,255,255,.72)}
+  .pointlist{list-style:none}
+  .pointlist li{padding:12px 0 12px 26px;position:relative;border-bottom:1px solid var(--line);color:var(--muted)}
+  .bg-forest .pointlist li{border-color:rgba(255,255,255,.14);color:rgba(255,255,255,.82)}
+  .pointlist li::before{content:'';position:absolute;left:0;top:21px;width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .cards-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);padding:40px 36px}
+  .bg-cream .card{background:var(--cream)}
+  .card .klabel{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .card h3{font-size:1.45rem;color:var(--forest);margin:10px 0 12px}
+  .card p{color:var(--muted);font-size:1rem}
+
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+  .svc{padding:8px 0}
+  .svc .no{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.95rem;color:var(--gold);font-weight:700;letter-spacing:.1em}
+  .svc h3{font-size:1.3rem;color:var(--forest);margin:8px 0 10px}
+  .svc p{color:var(--muted);font-size:.98rem}
+
+  /* CASE */
+  .case{display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:stretch}
+  .case-img{background:url('https://static.wixstatic.com/media/9c06de_09426cdd78cc49818e07769fb86a608d~mv2.jpg/v1/fill/w_1200,h_1000,al_c,q_85,enc_avif,quality_auto/9c06de_09426cdd78cc49818e07769fb86a608d~mv2.jpg') center/cover;min-height:540px}
+  .case-body{background:var(--forest);color:#fff;padding:64px 56px}
+  .case-body .eyebrow{margin-bottom:16px}
+  .case-body h2{font-size:2.4rem;margin-bottom:8px}
+  .case-body .loc{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--gold-light);letter-spacing:.12em;font-size:.85rem;text-transform:uppercase;margin-bottom:24px}
+  .case-body ul{list-style:none;margin:18px 0}
+  .case-body li{padding:8px 0 8px 22px;position:relative;color:rgba(255,255,255,.85);font-size:1rem}
+  .case-body li::before{content:'—';position:absolute;left:0;color:var(--gold)}
+
+  /* OFFER CARDS */
+  .offer{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .offer-card{height:420px;background-size:cover;background-position:center;position:relative;cursor:pointer;overflow:hidden;transition:transform .5s ease}
+  .offer-card::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(18,34,27,.92));transition:.35s}
+  .offer-card:hover::after{background:linear-gradient(rgba(31,58,46,.3),rgba(18,34,27,.95))}
+  .offer-card:hover{transform:scale(1.02)}
+  .offer-ov{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:30px 28px}
+  .offer-k{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);font-weight:700}
+  .offer-t{color:#fff;font-size:1.25rem;margin:8px 0 14px;line-height:1.25}
+  .offer-more{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.78rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase}
+
+  /* LIGHTBOX */
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(13,24,19,.94);display:none;align-items:center;justify-content:center;padding:40px 20px}
+  .lb.open{display:flex}
+  .lb-inner{max-width:1000px;width:100%;max-height:90vh;overflow-y:auto;background:var(--paper)}
+  .lb-imgs{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line)}
+  .lb-imgs .li{height:240px;background-size:cover;background-position:center}
+  .lb-body{padding:34px 40px 40px}
+  .lb-body .eyebrow{margin-bottom:8px}
+  .lb-body h3{font-size:1.8rem;color:var(--forest);margin-bottom:6px}
+  .lb-body .loc{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--gold);letter-spacing:.1em;font-size:.8rem;text-transform:uppercase;margin-bottom:16px}
+  .lb-body p{color:var(--muted);margin-bottom:12px}
+  .lb-body ul{list-style:none;margin:10px 0}
+  .lb-body li{padding:6px 0 6px 20px;position:relative;color:var(--ink)}
+  .lb-body li::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+  .lb-close{position:fixed;top:24px;right:30px;z-index:201;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.4rem;cursor:pointer;transition:.2s;font-family:'Helvetica Neue',Arial,sans-serif}
+  .lb-close:hover{border-color:var(--gold);color:var(--gold)}
+  .lb-note{font-size:.85rem;color:var(--muted);font-style:italic;margin-top:14px}
+
+  /* IMAGE-BACKED SECTIONS */
+  .bg-photo{position:relative;color:#fff;background-size:cover;background-position:center;background-attachment:fixed}
+  .bg-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(18,34,27,.86),rgba(18,34,27,.9))}
+  .bg-photo .wrap{position:relative;z-index:1}
+  .bg-photo .section-head h2{color:#fff}
+  .bg-photo .section-head p{color:rgba(255,255,255,.72)}
+  .bg-photo .stat .num{color:var(--gold-light)}
+  .bg-photo .stat .lbl{color:rgba(255,255,255,.74)}
+  .bg-photo .pointlist li{border-color:rgba(255,255,255,.14);color:rgba(255,255,255,.84)}
+  .bg-photo .svc h3{color:#fff}
+  .bg-photo .svc p{color:rgba(255,255,255,.74)}
+  .bg-photo .svc .no{color:var(--gold-light)}
+
+  /* GALLERY BAND */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .gallery .g{height:300px;background-size:cover;background-position:center;position:relative;overflow:hidden;transition:transform .6s ease}
+  .gallery .g:hover{transform:scale(1.06)}
+
+  /* IMAGE DIVIDER */
+  .divider{height:340px;background-size:cover;background-position:center;background-attachment:fixed;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
+  .divider::before{content:'';position:absolute;inset:0;background:rgba(18,34,27,.55)}
+  .divider .quote{position:relative;z-index:1;max-width:720px;padding:0 32px;color:#fff;font-size:clamp(1.4rem,3vw,2.2rem);font-style:italic;line-height:1.4}
+  .divider .quote .gold{color:var(--gold-light)}
+
+  footer{background:var(--forest-deep);color:rgba(255,255,255,.6);padding:40px 0;text-align:center;font-family:'Helvetica Neue',Arial,sans-serif;font-size:.82rem;letter-spacing:.04em}
+  footer .fbrand{color:var(--gold);letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;margin-bottom:10px}
+
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .contact h2{font-size:2.6rem;color:#fff;margin-bottom:18px;line-height:1.1}
+  .contact p{color:rgba(255,255,255,.78);font-size:1.1rem;margin-bottom:14px}
+  .contact .info{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--gold-light);letter-spacing:.06em;margin-top:24px}
+  form{display:grid;gap:16px}
+  form input,form textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);color:#fff;padding:14px 16px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:.95rem}
+  form input::placeholder,form textarea::placeholder{color:rgba(255,255,255,.5)}
+  form input:focus,form textarea:focus{outline:none;border-color:var(--gold)}
+
+  @media(max-width:880px){
+    .navlinks{display:none}
+    .stats,.services,.cards,.case,.contact,.offer{grid-template-columns:1fr}
+    .case-img{min-height:280px}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .gallery .g{height:200px}
+    .offer-card{height:320px}
+    .lb-imgs{grid-template-columns:1fr}
+    .bg-photo{background-attachment:scroll}
+    .divider{background-attachment:scroll}
+  }
+  [data-en]{display:none}
+  body.en [data-es]{display:none}
+  body.en [data-en]{display:inline}
+  body.en li[data-en],body.en p[data-en]{display:block}
+</style>
+</head>
+<body class="en">
+
+<nav>
+  <a href="#top" class="brand" style="text-decoration:none">
+    <img src="https://static.wixstatic.com/media/405a64_0b047cf0383a4c8b8d655b88d3b5a738~mv2.png/v1/fill/w_205,h_35,al_c,lg_1,q_85,enc_avif,quality_auto/logo-tango-horizontal%202.png" alt="Tango Holding" style="height:30px;width:auto;display:block">
+    <span class="b2" style="font-size:.82rem;letter-spacing:.18em;color:var(--gold-light);margin-top:5px;font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase;text-align:center">Río de la Plata</span>
+  </a>
+  <div class="navlinks">
+    <a href="#oportunidad"><span data-es>Oportunidad</span><span data-en>Opportunity</span></a>
+    <a href="#servicios"><span data-es>Servicios</span><span data-en>Services</span></a>
+    <a href="#ofrecemos"><span data-es>Propiedades</span><span data-en>Properties</span></a>
+    <a href="#caso"><span data-es>Caso</span><span data-en>Case Study</span></a>
+    <a href="#contacto"><span data-es>Contacto</span><span data-en>Contact</span></a>
+  </div>
+  <div class="langtoggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1>
+      <span data-es>Private Wealth Real Estate<br>en el <span class="gold">Río de la Plata</span></span>
+      <span data-en>Private Wealth Real Estate<br>in the <span class="gold">Río de la Plata</span></span>
+    </h1>
+    <p class="sub">
+      <span data-es>Acompañamiento integral para familias de alto patrimonio que invierten, adquieren propiedades y planifican su futuro en Argentina y Uruguay.</span>
+      <span data-en>End-to-end advisory for high-net-worth families investing, acquiring property, and planning their future across Argentina and Uruguay.</span>
+    </p>
+    <div>
+      <a href="#contacto" class="btn btn-gold"><span data-es>Conversemos</span><span data-en>Let's talk</span></a>
+      <a href="#servicios" class="btn btn-ghost"><span data-es>Nuestros servicios</span><span data-en>Our services</span></a>
+    </div>
+    <p class="meta" style="margin-top:54px">
+      <span data-es>Campos · Chacras · Residencias · Empresas &nbsp;—&nbsp; Argentina &amp; Uruguay</span>
+      <span data-en>Farms · Ranches · Residences · Companies &nbsp;—&nbsp; Argentina &amp; Uruguay</span>
+    </p>
+  </div>
+</header>
+
+<!-- OPORTUNIDAD -->
+<section id="oportunidad" class="bg-cream">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span data-es>La Oportunidad</span><span data-en>The Opportunity</span></div>
+      <h2><span data-es>Por qué Argentina y Uruguay — y por qué ahora</span><span data-en>Why Argentina and Uruguay — and why now</span></h2>
+      <p><span data-es>Una ventana única: estabilidad institucional, activos reales en dólares a valores históricos y demanda creciente de familias europeas y norteamericanas.</span><span data-en>A unique window: institutional stability, dollar-denominated real assets at historic values, and rising demand from European and North American families.</span></p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">USD 1.2B</div><div class="lbl"><span data-es>Inversión extranjera en real estate rural en Uruguay (2025–2026)</span><span data-en>Foreign investment in rural real estate in Uruguay (2025–2026)</span></div></div>
+      <div class="stat"><div class="num">+68%</div><div class="lbl"><span data-es>Solicitudes de residencia de familias alemanas, suizas e italianas (2026 vs 2024)</span><span data-en>Residency applications from German, Swiss and Italian families (2026 vs 2024)</span></div></div>
+      <div class="stat"><div class="num">+40%</div><div class="lbl"><span data-es>Prima de valor en propiedades refaccionadas a estándar europeo</span><span data-en>Value premium on properties renovated to European standards</span></div></div>
+    </div>
+    <ul class="pointlist">
+      <li><span data-es><strong>Uruguay:</strong> ley 16.906 garantiza igualdad de derechos para inversores extranjeros en bienes raíces.</span><span data-en><strong>Uruguay:</strong> Law 16.906 guarantees equal rights for foreign investors in real estate.</span></li>
+      <li><span data-es><strong>Argentina:</strong> recuperación del mercado — volumen de transacciones +39.7% YoY, precios en mínimos históricos en dólares.</span><span data-en><strong>Argentina:</strong> market recovery — transaction volume +39.7% YoY, prices at historic USD lows.</span></li>
+      <li><span data-es><strong>Garzón / Punta del Este:</strong> la zona de mayor valorización del Cono Sur — viñedos, chacras y estancias en fuerte demanda.</span><span data-en><strong>Garzón / Punta del Este:</strong> the highest-appreciation area in the Southern Cone — vineyards, ranches and estates in strong demand.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section id="target">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span data-es>A Quién Servimos</span><span data-en>Who We Serve</span></div>
+      <h2><span data-es>Un cliente, un interlocutor</span><span data-en>One client, one point of contact</span></h2>
+    </div>
+    <div class="cards cards-3">
+      <div class="card">
+        <div class="klabel"><span data-es>Familias Europeas y de EE.UU.</span><span data-en>European &amp; U.S. Families</span></div>
+        <h3><span data-es>Diversificación y lifestyle</span><span data-en>Diversification & lifestyle</span></h3>
+        <p><span data-es>Familias de Suiza, Italia, Alemania y España, y clientes de Tango Holding en EE.UU., que buscan diversificar fuera de su mercado, una base segura en el hemisferio sur y activos lifestyle: estancias y chacras boutique.</span><span data-en>Families from Switzerland, Italy, Germany and Spain, and Tango Holding's U.S. clients, looking to diversify beyond their home market, secure a base in the southern hemisphere and own lifestyle assets: estates and boutique ranches.</span></p>
+      </div>
+      <div class="card">
+        <div class="klabel"><span data-es>Family &amp; Multifamily Offices</span><span data-en>Family &amp; Multifamily Offices</span></div>
+        <h3><span data-es>Activos alternativos sólidos</span><span data-en>Solid alternative assets</span></h3>
+        <p><span data-es>Requieren due diligence riguroso y estructuras legales sólidas, con baja correlación a mercados financieros.</span><span data-en>Requiring rigorous due diligence and robust legal structures, with low correlation to financial markets.</span></p>
+      </div>
+      <div class="card">
+        <div class="klabel"><span data-es>Vinculación Cultural</span><span data-en>Cultural Ties</span></div>
+        <h3><span data-es>Repatriar bajo estructura</span><span data-en>Repatriate with structure</span></h3>
+        <p><span data-es>Latinoamericanos con patrimonio en el exterior que buscan invertir bajo estructuras seguras, incluida la compra de empresas.</span><span data-en>Latin Americans with offshore wealth seeking to invest under secure structures, including company acquisitions.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY BAND — mix: La Tertulia (Garzón) · campo · viñedo -->
+<div class="gallery">
+  <!-- Garzón (La Tertulia) · campo · chacra/viñedo · Garzón (casa La Tertulia) -->
+  <div class="g" style="background-image:url('https://static.wixstatic.com/media/9c06de_0c34df9bc906400da5c4d0f059ff231cf000.jpg/v1/fill/w_1100,h_760,al_c,q_85,enc_avif,quality_auto/9c06de_0c34df9bc906400da5c4d0f059ff231cf000.jpg')"></div>
+  <div class="g" style="background-image:url('https://images.pexels.com/photos/8156811/pexels-photo-8156811.jpeg?auto=compress&cs=tinysrgb&w=1400')"></div>
+  <div class="g" style="background-image:url('https://images.pexels.com/photos/11566340/pexels-photo-11566340.jpeg?auto=compress&cs=tinysrgb&w=1400')"></div>
+  <div class="g" style="background-image:url('https://static.wixstatic.com/media/4f91a6_909649dcbe154b6c9b6ffeed741ff4a3~mv2.jpg/v1/fill/w_1100,h_760,al_c,q_85,enc_avif,quality_auto/4f91a6_909649dcbe154b6c9b6ffeed741ff4a3~mv2.jpg')"></div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="bg-cream">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span data-es>Nuestros Servicios</span><span data-en>Our Services</span></div>
+      <h2><span data-es>De la idea al cierre — y más allá</span><span data-en>From the idea to closing — and beyond</span></h2>
+      <p><span data-es>Un solo interlocutor para toda la vida del activo. Sin intermediarios ocultos, 100% del lado del comprador.</span><span data-en>A single point of contact for the entire life of the asset. No hidden intermediaries, 100% on the buyer's side.</span></p>
+    </div>
+    <div class="services">
+      <div class="svc"><div class="no">01</div><h3><span data-es>Búsqueda y selección</span><span data-en>Sourcing & selection</span></h3><p><span data-es>Acceso a propiedades off-market. Análisis comparativo y valuación independiente.</span><span data-en>Access to off-market properties. Comparative analysis and independent valuation.</span></p></div>
+      <div class="svc"><div class="no">02</div><h3><span data-es>Due diligence</span><span data-en>Due diligence</span></h3><p><span data-es>Legal, catastral, ambiental y técnico, con estudios jurídicos locales de primer nivel.</span><span data-en>Legal, cadastral, environmental and technical, with top-tier local law firms.</span></p></div>
+      <div class="svc"><div class="no">03</div><h3><span data-es>Estructuración legal</span><span data-en>Legal structuring</span></h3><p><span data-es>Sociedades, fideicomiso y planificación patrimonial para no residentes.</span><span data-en>Companies, trusts and wealth planning for non-residents.</span></p></div>
+      <div class="svc"><div class="no">04</div><h3><span data-es>Negociación y closing</span><span data-en>Negotiation & closing</span></h3><p><span data-es>Representación integral del comprador. Coordinación de escribanías, bancos y proveedores.</span><span data-en>Full buyer representation. Coordination of notaries, banks and providers.</span></p></div>
+      <div class="svc"><div class="no">05</div><h3><span data-es>Trámites migratorios</span><span data-en>Residency & relocation</span></h3><p><span data-es>Residencia fiscal y legal en Uruguay y Argentina, con asesores especializados.</span><span data-en>Tax and legal residency in Uruguay and Argentina, with specialized advisors.</span></p></div>
+      <div class="svc"><div class="no">06</div><h3><span data-es>Post-compra</span><span data-en>Post-purchase</span></h3><p><span data-es>Gestión, mantenimiento, arquitectura, contabilidad y administración impositiva.</span><span data-en>Management, maintenance, architecture, accounting and tax administration.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LO QUE OFRECEMOS -->
+<section id="ofrecemos" class="bg-forest">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span data-es>Lo Que Ofrecemos</span><span data-en>What We Offer</span></div>
+      <h2><span data-es>Activos reales, seleccionados uno por uno</span><span data-en>Real assets, hand-selected one by one</span></h2>
+      <p><span data-es>Campos, chacras y residencias de lujo en las mejores zonas de Argentina y Uruguay. Clickeá cada categoría para ver ejemplos.</span><span data-en>Farms, ranches and luxury residences in the finest areas of Argentina and Uruguay. Click each category to see examples.</span></p>
+    </div>
+    <div class="offer">
+      <div class="offer-card" onclick="openLB('campos')" style="background-image:url('https://images.pexels.com/photos/8156811/pexels-photo-8156811.jpeg?auto=compress&cs=tinysrgb&w=1400')">
+        <div class="offer-ov">
+          <div class="offer-k"><span data-es>Campos &amp; Estancias</span><span data-en>Farms &amp; Estates</span></div>
+          <div class="offer-t"><span data-es>Activos agropecuarios y ganaderos</span><span data-en>Agricultural &amp; livestock land</span></div>
+          <span class="offer-more"><span data-es>Ver más →</span><span data-en>See more →</span></span>
+        </div>
+      </div>
+      <div class="offer-card" onclick="openLB('chacras')" style="background-image:url('https://images.pexels.com/photos/11566340/pexels-photo-11566340.jpeg?auto=compress&cs=tinysrgb&w=1400')">
+        <div class="offer-ov">
+          <div class="offer-k"><span data-es>Chacras</span><span data-en>Country Estates</span></div>
+          <div class="offer-t"><span data-es>Chacras boutique con casa de campo</span><span data-en>Boutique estates with country homes</span></div>
+          <span class="offer-more"><span data-es>Ver más →</span><span data-en>See more →</span></span>
+        </div>
+      </div>
+      <div class="offer-card" onclick="openLB('lujo')" style="background-image:url('DSC00046-Edit.jpg')">
+        <div class="offer-ov">
+          <div class="offer-k"><span data-es>Propiedades de Lujo</span><span data-en>Luxury Residences</span></div>
+          <div class="offer-t"><span data-es>Residencias premium en Buenos Aires y Punta del Este</span><span data-en>Premium residences in Buenos Aires &amp; Punta del Este</span></div>
+          <span class="offer-more"><span data-es>Ver más →</span><span data-en>See more →</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="divider" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=80')">
+  <div class="quote">
+    <span data-es>"Las mejores oportunidades no se publicitan — <span class="gold">se consiguen.</span>"</span>
+    <span data-en>"The best opportunities aren't advertised — <span class="gold">they're sourced.</span>"</span>
+  </div>
+</div>
+
+<!-- CASO -->
+<section id="caso" style="padding:0">
+  <div class="case">
+    <div class="case-img" onclick="openLB('tertulia')" style="cursor:pointer"></div>
+    <div class="case-body">
+      <div class="eyebrow"><span data-es>Caso de Estudio</span><span data-en>Case Study</span></div>
+      <h2>La Tertulia</h2>
+      <div class="loc">Garzón, Maldonado — Uruguay</div>
+      <ul>
+        <li><span data-es>107 hectáreas · Mansión de 800 m² con vistas panorámicas 360°</span><span data-en>107 hectares · 800 m² mansion with 360° panoramic views</span></li>
+        <li><span data-es>A 10 minutos de Garzón, cerca de Bodega Garzón</span><span data-en>10 minutes from Garzón, near Bodega Garzón</span></li>
+        <li><span data-es>Piscina, senderos privados y naturaleza en estado puro</span><span data-en>Pool, private trails and nature at its purest</span></li>
+        <li><span data-es>Operación acompañada de punta a punta por Tango Holding</span><span data-en>End-to-end transaction guided by Tango Holding</span></li>
+        <li><span data-es>Zona de Bodega Garzón — alto potencial de valorización</span><span data-en>Bodega Garzón area — strong appreciation potential</span></li>
+      </ul>
+      <p style="color:rgba(255,255,255,.7);font-size:.98rem;margin-top:10px">
+        <span data-es>Las mejores oportunidades no se publicitan — se consiguen. Discreción, criterio y acompañamiento integral en cada operación.</span>
+        <span data-en>The best opportunities aren't advertised — they're sourced. Discretion, judgment and full support on every transaction.</span>
+      </p>
+      <button class="btn btn-gold" style="margin-top:22px" onclick="openLB('tertulia')"><span data-es>Ver galería</span><span data-en>View gallery</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUE TANGO -->
+<section id="porque" class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=2000&q=80')">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span data-es>Por Qué Tango</span><span data-en>Why Tango</span></div>
+      <h2><span data-es>Nuestra ventaja diferencial</span><span data-en>Our edge</span></h2>
+    </div>
+    <div class="services">
+      <div class="svc"><h3><span data-es>15 años de track record</span><span data-en>15-year track record</span></h3><p><span data-es>Experiencia comprobada asesorando familias en real estate internacional.</span><span data-en>Proven experience advising families in international real estate.</span></p></div>
+      <div class="svc"><h3><span data-es>Red de contactos exclusivos</span><span data-en>Exclusive network</span></h3><p><span data-es>Diplomáticos, family offices y bancos privados europeos. Socios locales de primer nivel en BA y Montevideo.</span><span data-en>Diplomats, family offices and European private banks. Top-tier local partners in BA and Montevideo.</span></p></div>
+      <div class="svc"><h3><span data-es>100% del lado del comprador</span><span data-en>100% buyer-side</span></h3><p><span data-es>No representamos vendedores ni desarrolladores. Sin conflictos de interés.</span><span data-en>We don't represent sellers or developers. No conflicts of interest.</span></p></div>
+      <div class="svc"><h3><span data-es>Ecosistema completo</span><span data-en>Full ecosystem</span></h3><p><span data-es>Legal, contable, arquitectura, mantenimiento — todo coordinado por un solo interlocutor.</span><span data-en>Legal, accounting, architecture, maintenance — all coordinated by a single point of contact.</span></p></div>
+      <div class="svc"><h3><span data-es>Bilingüe y multicultural</span><span data-en>Bilingual & multicultural</span></h3><p><span data-es>Servicio en español e inglés. Entendemos la lógica del inversor europeo y norteamericano.</span><span data-en>Service in Spanish and English. We understand the European and North American investor.</span></p></div>
+      <div class="svc"><h3><span data-es>Respaldo de Tango Holding</span><span data-en>Backed by Tango Holding</span></h3><p><span data-es>Marca consolidada, reputación institucional y estructura profesional: contratos, NDAs y reporting formal.</span><span data-en>An established brand, institutional reputation and professional structure: contracts, NDAs and formal reporting.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="bg-forest">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2><span data-es>Empecemos a construir juntos.</span><span data-en>Let's start building together.</span></h2>
+        <p><span data-es>Una llamada inicial de 30 minutos para entender tus objetivos y el perfil del inversor. Sin compromiso.</span><span data-en>An initial 30-minute call to understand your goals and investor profile. No commitment.</span></p>
+        <div class="info">
+          www.tangoholding.com
+        </div>
+      </div>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?enviado=ok">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none"><label>No llenar: <input name="bot-field"></label></p>
+        <input type="text" name="name" placeholder="Nombre / Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="country" placeholder="País / Country">
+        <textarea name="message" rows="4" placeholder="¿En qué podemos ayudarte? / How can we help?"></textarea>
+        <button type="submit" class="btn btn-gold" style="justify-self:start"><span data-es>Enviar consulta</span><span data-en>Send inquiry</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lightbox" onclick="if(event.target===this)closeLB()">
+  <button class="lb-close" onclick="closeLB()">×</button>
+  <div class="lb-inner">
+    <div class="lb-imgs" id="lb-imgs"></div>
+    <div class="lb-body">
+      <div class="eyebrow" id="lb-eyebrow"></div>
+      <h3 id="lb-title"></h3>
+      <div class="loc" id="lb-loc"></div>
+      <div id="lb-content"></div>
+      <p class="lb-note" id="lb-note"></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="fbrand">Tango Holding · Río de la Plata</div>
+  <div>Private Wealth Real Estate &nbsp;·&nbsp; Argentina &amp; Uruguay &nbsp;·&nbsp; <span data-es>Confidencial</span><span data-en>Confidential</span> · 2026</div>
+</footer>
+
+<script>
+  function setLang(l){
+    document.body.classList.toggle('en', l==='en');
+    document.documentElement.lang=l;
+    document.getElementById('btn-es').classList.toggle('active', l==='es');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    if(document.getElementById('lightbox').classList.contains('open')) renderLB();
+  }
+
+  // ===== DATOS DE PROPIEDADES (placeholder — reemplazar fotos/textos por los reales) =====
+  const W='https://static.wixstatic.com/media/';
+  const T=(id)=>W+id+'/v1/fill/w_1000,h_700,al_c,q_85,enc_avif,quality_auto/'+id;
+  const U=(id)=>'https://images.unsplash.com/'+id+'?auto=format&fit=crop&w=1000&q=80';
+  const P=(id)=>'https://images.pexels.com/photos/'+id+'/pexels-photo-'+id+'.jpeg?auto=compress&cs=tinysrgb&w=1400';
+
+  const DATA={
+    campos:{
+      eyebrow:{es:'Campos & Estancias',en:'Farms & Estates'},
+      title:{es:'Campos & Estancias',en:'Farms & Estates'},
+      loc:{es:'Argentina & Uruguay',en:'Argentina & Uruguay'},
+      imgs:[P('18848676'),P('8156811'),P('34096012'),P('12340778')],
+      body:{es:'<p>Activos agropecuarios y ganaderos en las regiones más productivas de Argentina y Uruguay. Campos para producción, inversión o lifestyle, con análisis de renta, aptitud de suelo y potencial de valorización.</p><ul><li>Producción agrícola, ganadera y forestal</li><li>Due diligence catastral, ambiental y de títulos</li><li>Estructuración fiscal para no residentes</li></ul>',
+            en:'<p>Agricultural and livestock land in the most productive regions of Argentina and Uruguay. Land for production, investment or lifestyle, with yield analysis, soil suitability and appreciation potential.</p><ul><li>Agricultural, livestock and forestry production</li><li>Cadastral, environmental and title due diligence</li><li>Tax structuring for non-residents</li></ul>'},
+      note:{es:'',en:''}
+    },
+    chacras:{
+      eyebrow:{es:'Chacras',en:'Country Estates'},
+      title:{es:'Chacras boutique',en:'Boutique Country Estates'},
+      loc:{es:'Garzón · Punta del Este · José Ignacio',en:'Garzón · Punta del Este · José Ignacio'},
+      imgs:[T('9c06de_0c34df9bc906400da5c4d0f059ff231cf000.jpg'),P('11566340'),T('4f91a6_88324507807a4b749eea6b3e8f10dedc~mv2.jpg'),P('29043808')],
+      body:{es:'<p>Chacras boutique con casa de campo en las zonas de mayor demanda del este uruguayo. Combinan disfrute, naturaleza y un activo que se valoriza, cerca de bodegas y de la costa.</p><ul><li>Casa principal, piscina y parque</li><li>Hectáreas con potencial de viñedo u olivar</li><li>Gestión y mantenimiento post-compra</li></ul>',
+            en:'<p>Boutique country estates with a country home in the most sought-after areas of eastern Uruguay. They combine enjoyment, nature and an appreciating asset, close to wineries and the coast.</p><ul><li>Main house, pool and grounds</li><li>Hectares with vineyard or olive-grove potential</li><li>Post-purchase management and maintenance</li></ul>'},
+      note:{es:'',en:''}
+    },
+    lujo:{
+      eyebrow:{es:'Propiedades de Lujo',en:'Luxury Residences'},
+      title:{es:'Residencias premium',en:'Premium Residences'},
+      loc:{es:'Buenos Aires · Punta del Este',en:'Buenos Aires · Punta del Este'},
+      imgs:['DSC00046-Edit.jpg',P('31817163'),'DSC00013-Edit.jpg',P('29453302')],
+      body:{es:'<p>Residencias premium en las mejores ubicaciones de Buenos Aires y Punta del Este. Departamentos y casas de alta gama, seleccionados por ubicación, calidad constructiva y potencial de reventa.</p><ul><li>Pisos y casas en barrios premium</li><li>Acceso a oportunidades off-market</li><li>Estructuración de compra y residencia</li></ul>',
+            en:'<p>Premium residences in the finest locations of Buenos Aires and Punta del Este. High-end apartments and houses, selected for location, build quality and resale potential.</p><ul><li>Apartments and houses in premium neighborhoods</li><li>Access to off-market opportunities</li><li>Purchase and residency structuring</li></ul>'},
+      note:{es:'',en:''}
+    },
+    tertulia:{
+      eyebrow:{es:'Caso de Estudio',en:'Case Study'},
+      title:{es:'La Tertulia',en:'La Tertulia'},
+      loc:{es:'Garzón, Maldonado — Uruguay',en:'Garzón, Maldonado — Uruguay'},
+      imgs:[
+        T('9c06de_0c34df9bc906400da5c4d0f059ff231cf000.jpg'),
+        T('9c06de_09426cdd78cc49818e07769fb86a608d~mv2.jpg'),
+        T('aad265_0e8a7574cc364271b03433942b3b2c6c~mv2.jpeg'),
+        T('4f91a6_88324507807a4b749eea6b3e8f10dedc~mv2.jpg'),
+        T('4f91a6_909649dcbe154b6c9b6ffeed741ff4a3~mv2.jpg'),
+        T('aad265_cadbba6cfddd45f4be04d0d2c6c186c8~mv2.jpg')
+      ],
+      body:{es:'<p>Mansión de 800 m² sobre 107 hectáreas a 10 minutos de Garzón, con vistas panorámicas 360°, piscina y senderos privados. Una propiedad emblemática acompañada de punta a punta por Tango Holding.</p><ul><li>107 hectáreas · Mansión de 800 m²</li><li>Vistas 360°, piscina y naturaleza</li><li>Zona Bodega Garzón — alto potencial de valorización</li></ul>',
+            en:'<p>800 m² mansion on 107 hectares, 10 minutes from Garzón, with 360° panoramic views, a pool and private trails. A landmark property guided end-to-end by Tango Holding.</p><ul><li>107 hectares · 800 m² mansion</li><li>360° views, pool and nature</li><li>Bodega Garzón area — strong appreciation potential</li></ul>'},
+      note:{es:'',en:''}
+    }
+  };
+
+  function curLang(){return document.body.classList.contains('en')?'en':'es';}
+  let currentKey=null;
+
+  function openLB(key){
+    currentKey=key;
+    renderLB();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function renderLB(){
+    const d=DATA[currentKey]; if(!d)return; const L=curLang();
+    document.getElementById('lb-imgs').innerHTML=d.imgs.map(u=>'<div class="li" style="background-image:url('+u+')"></div>').join('');
+    document.getElementById('lb-eyebrow').textContent=d.eyebrow[L];
+    document.getElementById('lb-title').textContent=d.title[L];
+    document.getElementById('lb-loc').textContent=d.loc[L];
+    document.getElementById('lb-content').innerHTML=d.body[L];
+    var _n=document.getElementById('lb-note');
+    _n.textContent=(d.note&&d.note[L])?d.note[L]:'';
+    _n.style.display=_n.textContent?'block':'none';
+  }
+  function closeLB(){
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape')closeLB(); });
+</script>
+</body>
+</html>

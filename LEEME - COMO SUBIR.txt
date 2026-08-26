@@ -1,0 +1,42 @@
+SUBIR A GITHUB - TANGO RIO DE LA PLATA
+======================================
+Todo lo que hay en esta carpeta va a la RAIZ del repo. Nada mas, nada menos.
+
+  mapa/index.html     El mapa. Es el unico imprescindible.
+  mapa/favicon.png    Icono de la solapa.
+  robots.txt          Raiz. Pide a Google que no indexe /mapa.
+  .nojekyll           Raiz. Archivo vacio a proposito. Evita que GitHub
+                      Pages se coma archivos y carpetas.
+
+Queda publicado en:  https://TUDOMINIO/mapa
+
+---------------------------------------------------
+OPCION 1 - POR LA WEB DE GITHUB
+  1. Entra al repo -> boton "Add file" -> "Upload files".
+  2. Arrastra la carpeta  mapa  y el archivo  robots.txt
+  3. Commit a la rama que publica el sitio (main / master / gh-pages).
+  4. El archivo .nojekyll: el navegador a veces NO deja arrastrar archivos
+     que empiezan con punto. Si no aparece en la lista, crealo a mano:
+        "Add file" -> "Create new file" -> nombre:  .nojekyll
+        -> lo dejas VACIO -> Commit.
+
+OPCION 2 - POR CONSOLA (si tenes el repo clonado)
+     cp -r mapa robots.txt .nojekyll  /ruta/al/repo/
+     cd /ruta/al/repo
+     git add .
+     git commit -m "mapa inversores"
+     git push
+
+---------------------------------------------------
+OJO
+  * Si el repo YA tiene un robots.txt, no lo pises. Agregale al final:
+        User-agent: *
+        Disallow: /mapa/
+
+  * No subas ningun index.html a la raiz del repo: pisarias la landing
+    que ya esta publicada y funcionando.
+
+  * robots.txt y .nojekyll se suben UNA SOLA VEZ. Para actualizar el mapa
+    mas adelante se reemplaza un unico archivo: mapa/index.html
+
+  * Si despues de subir lo ves viejo en el navegador, es cache: Ctrl+F5.

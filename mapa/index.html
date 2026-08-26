@@ -2243,15 +2243,14 @@ const map = L.map("map", { zoomControl: false, minZoom: 6, maxZoom: 19, worldCop
 L.control.zoom({ position: "topright" }).addTo(map);
 
 const OSM_ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+/* Los basemaps de CARTO (voyager / light_all) pasaron a exigir API key: sin key
+   devuelven el tile con la marca de agua "API key required". Se sacaron.
+   Si algun dia se contrata un proveedor, se cambia la URL aca y nada mas. */
 const BASES = {
-  streets: L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-    { subdomains:"abcd", maxZoom:20, attribution: OSM_ATTR + ' &copy; <a href="https://carto.com/attributions">CARTO</a>' }),
-  osm: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+  streets: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     { maxZoom:19, attribution: OSM_ATTR }),
   sat: L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-    { maxZoom:19, attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics' }),
-  min: L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png",
-    { subdomains:"abcd", maxZoom:20, attribution: OSM_ATTR + ' &copy; <a href="https://carto.com/attributions">CARTO</a>' })
+    { maxZoom:19, attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics' })
 };
 const SAT_LABELS = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
   { maxZoom:19, opacity:.9 });
@@ -2662,7 +2661,7 @@ function drawChrome(){
  });
   document.getElementById("q").placeholder = t("ui.search");
   setTxt("scalenote", t("sc.straight").replace("{n}", ALL.length));
-  setHTML("basebar", [["streets","b.streets"],["osm","b.osm"],["sat","b.sat"],["min","b.min"]]
+  setHTML("basebar", [["streets","b.streets"],["sat","b.sat"]]
     .map(([k, l]) => `<button class="basebtn" data-base="${k}" aria-pressed="${base === k}">${t(l)}</button>`).join(""));
   setTxt("toolHint", t(tool ? "h." + tool : "h.idle"));
   drawCats(); drawList(); buildZones();

@@ -176,10 +176,20 @@
     .bg-photo{background-attachment:scroll}
     .divider{background-attachment:scroll}
   }
-  [data-en]{display:none}
-  body.en [data-es]{display:none}
-  body.en [data-en]{display:inline}
-  body.en li[data-en],body.en p[data-en]{display:block}
+  /* IDIOMAS: es (default) · en · fr · de */
+  [data-en],[data-fr],[data-de]{display:none}
+  body.en [data-es],body.fr [data-es],body.de [data-es]{display:none}
+  body.en [data-en],body.fr [data-fr],body.de [data-de]{display:inline}
+  .navlinks a{white-space:nowrap}
+  @media(max-width:1100px){ .navlinks{gap:18px} .navlinks a{letter-spacing:.05em} }
+  @media(max-width:880px){
+    nav{padding:8px 16px}
+    .langtoggle button{padding:5px 10px}
+  }
+  @media(max-width:380px){
+    nav img{height:32px!important}
+    .langtoggle button{padding:5px 8px;letter-spacing:.06em}
+  }
 </style>
 </head>
 <body class="en">
@@ -189,15 +199,17 @@
     <img src="TANGO_RioDeLaPlata_v2.png" alt="Tango | Río de la Plata" style="height:40px;width:auto;display:block">
   </a>
   <div class="navlinks">
-    <a href="#oportunidad"><span data-es>Oportunidad</span><span data-en>Opportunity</span></a>
-    <a href="#servicios"><span data-es>Servicios</span><span data-en>Services</span></a>
-    <a href="#ofrecemos"><span data-es>Propiedades</span><span data-en>Properties</span></a>
-    <a href="#caso"><span data-es>Caso</span><span data-en>Case Study</span></a>
-    <a href="#contacto"><span data-es>Contacto</span><span data-en>Contact</span></a>
+    <a href="#oportunidad"><span data-es>Oportunidad</span><span data-en>Opportunity</span><span data-fr>Opportunité</span><span data-de>Chance</span></a>
+    <a href="#servicios"><span data-es>Servicios</span><span data-en>Services</span><span data-fr>Services</span><span data-de>Leistungen</span></a>
+    <a href="#ofrecemos"><span data-es>Propiedades</span><span data-en>Properties</span><span data-fr>Propriétés</span><span data-de>Immobilien</span></a>
+    <a href="#caso"><span data-es>Caso</span><span data-en>Case Study</span><span data-fr>Étude de cas</span><span data-de>Referenzprojekt</span></a>
+    <a href="#contacto"><span data-es>Contacto</span><span data-en>Contact</span><span data-fr>Contact</span><span data-de>Kontakt</span></a>
   </div>
   <div class="langtoggle">
-    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-    <button id="btn-es" onclick="setLang('es')">ES</button>
+    <button id="btn-en" class="active" onclick="setLang('en')" lang="en" title="English">EN</button>
+    <button id="btn-es" onclick="setLang('es')" lang="es" title="Español">ES</button>
+    <button id="btn-fr" onclick="setLang('fr')" lang="fr" title="Français">FR</button>
+    <button id="btn-de" onclick="setLang('de')" lang="de" title="Deutsch">DE</button>
   </div>
 </nav>
 
@@ -205,19 +217,19 @@
   <div class="wrap">
     <h1>
       <span data-es>Private Wealth Real Estate<br>en el <span class="gold">Río de la Plata</span></span>
-      <span data-en>Private Wealth Real Estate<br>in the <span class="gold">Río de la Plata</span></span>
+      <span data-en>Private Wealth Real Estate<br>in the <span class="gold">Río de la Plata</span></span><span data-fr>Private Wealth Real Estate<br>au <span class="gold">Río de la Plata</span></span><span data-de>Private Wealth Real Estate<br>am <span class="gold">Río de la Plata</span></span>
     </h1>
     <p class="sub">
       <span data-es>Acompañamiento integral para familias de alto patrimonio que invierten, adquieren propiedades y planifican su futuro en Argentina y Uruguay.</span>
-      <span data-en>End-to-end advisory for high-net-worth families investing, acquiring property, and planning their future across Argentina and Uruguay.</span>
+      <span data-en>End-to-end advisory for high-net-worth families investing, acquiring property, and planning their future across Argentina and Uruguay.</span><span data-fr>Un accompagnement global pour les familles fortunées qui investissent, acquièrent des biens et préparent leur avenir en Argentine et en Uruguay.</span><span data-de>Ganzheitliche Begleitung für vermögende Familien, die in Argentinien und Uruguay investieren, Immobilien erwerben und ihre Zukunft planen.</span>
     </p>
     <div>
-      <a href="#contacto" class="btn btn-gold"><span data-es>Conversemos</span><span data-en>Let's talk</span></a>
-      <a href="#servicios" class="btn btn-ghost"><span data-es>Nuestros servicios</span><span data-en>Our services</span></a>
+      <a href="#contacto" class="btn btn-gold"><span data-es>Conversemos</span><span data-en>Let's talk</span><span data-fr>Parlons-en</span><span data-de>Sprechen wir</span></a>
+      <a href="#servicios" class="btn btn-ghost"><span data-es>Nuestros servicios</span><span data-en>Our services</span><span data-fr>Nos services</span><span data-de>Unsere Leistungen</span></a>
     </div>
     <p class="meta" style="margin-top:54px">
       <span data-es>Campos · Chacras · Residencias · Empresas &nbsp;—&nbsp; Argentina &amp; Uruguay</span>
-      <span data-en>Farms · Ranches · Residences · Companies &nbsp;—&nbsp; Argentina &amp; Uruguay</span>
+      <span data-en>Farms · Ranches · Residences · Companies &nbsp;—&nbsp; Argentina &amp; Uruguay</span><span data-fr>Terres agricoles · Domaines · Résidences · Entreprises &nbsp;—&nbsp; Argentine &amp; Uruguay</span><span data-de>Agrarland · Landsitze · Residenzen · Unternehmen &nbsp;—&nbsp; Argentinien &amp; Uruguay</span>
     </p>
   </div>
 </header>
@@ -226,19 +238,19 @@
 <section id="oportunidad" class="bg-cream">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span data-es>La Oportunidad</span><span data-en>The Opportunity</span></div>
-      <h2><span data-es>Por qué Argentina y Uruguay — y por qué ahora</span><span data-en>Why Argentina and Uruguay — and why now</span></h2>
-      <p><span data-es>Una ventana única: estabilidad institucional, activos reales en dólares a valores históricos y demanda creciente de familias europeas y norteamericanas.</span><span data-en>A unique window: institutional stability, dollar-denominated real assets at historic values, and rising demand from European and North American families.</span></p>
+      <div class="eyebrow"><span data-es>La Oportunidad</span><span data-en>The Opportunity</span><span data-fr>L’opportunité</span><span data-de>Die Chance</span></div>
+      <h2><span data-es>Por qué Argentina y Uruguay — y por qué ahora</span><span data-en>Why Argentina and Uruguay — and why now</span><span data-fr>Pourquoi l’Argentine et l’Uruguay — et pourquoi maintenant</span><span data-de>Warum Argentinien und Uruguay — und warum jetzt</span></h2>
+      <p><span data-es>Una ventana única: estabilidad institucional, activos reales en dólares a valores históricos y demanda creciente de familias europeas y norteamericanas.</span><span data-en>A unique window: institutional stability, dollar-denominated real assets at historic values, and rising demand from European and North American families.</span><span data-fr>Une fenêtre unique&nbsp;: stabilité institutionnelle, actifs réels en dollars à des niveaux de prix historiques et demande croissante des familles européennes et nord-américaines.</span><span data-de>Ein einzigartiges Zeitfenster: institutionelle Stabilität, Sachwerte in US-Dollar zu historisch niedrigen Preisen und wachsende Nachfrage europäischer und nordamerikanischer Familien.</span></p>
     </div>
     <div class="stats">
-      <div class="stat"><div class="num">USD 1.2B</div><div class="lbl"><span data-es>Inversión extranjera en real estate rural en Uruguay (2025–2026)</span><span data-en>Foreign investment in rural real estate in Uruguay (2025–2026)</span></div></div>
-      <div class="stat"><div class="num">+68%</div><div class="lbl"><span data-es>Solicitudes de residencia de familias alemanas, suizas e italianas (2026 vs 2024)</span><span data-en>Residency applications from German, Swiss and Italian families (2026 vs 2024)</span></div></div>
-      <div class="stat"><div class="num">+40%</div><div class="lbl"><span data-es>Prima de valor en propiedades refaccionadas a estándar europeo</span><span data-en>Value premium on properties renovated to European standards</span></div></div>
+      <div class="stat"><div class="num"><span data-es>USD 1.2B</span><span data-en>USD 1.2B</span><span data-fr>1,2&nbsp;Md&nbsp;USD</span><span data-de>1,2&nbsp;Mrd.&nbsp;USD</span></div><div class="lbl"><span data-es>Inversión extranjera en real estate rural en Uruguay (2025–2026)</span><span data-en>Foreign investment in rural real estate in Uruguay (2025–2026)</span><span data-fr>Investissements étrangers dans l’immobilier rural en Uruguay (2025–2026)</span><span data-de>Auslandsinvestitionen in ländliche Immobilien in Uruguay (2025–2026)</span></div></div>
+      <div class="stat"><div class="num"><span data-es>+68%</span><span data-en>+68%</span><span data-fr>+68&nbsp;%</span><span data-de>+68&nbsp;%</span></div><div class="lbl"><span data-es>Solicitudes de residencia de familias alemanas, suizas e italianas (2026 vs 2024)</span><span data-en>Residency applications from German, Swiss and Italian families (2026 vs 2024)</span><span data-fr>Demandes de résidence de familles allemandes, suisses et italiennes (2026 vs 2024)</span><span data-de>Aufenthaltsanträge deutscher, schweizerischer und italienischer Familien (2026 vs. 2024)</span></div></div>
+      <div class="stat"><div class="num"><span data-es>+40%</span><span data-en>+40%</span><span data-fr>+40&nbsp;%</span><span data-de>+40&nbsp;%</span></div><div class="lbl"><span data-es>Prima de valor en propiedades refaccionadas a estándar europeo</span><span data-en>Value premium on properties renovated to European standards</span><span data-fr>Prime de valeur des biens rénovés aux standards européens</span><span data-de>Wertaufschlag bei Immobilien, die nach europäischem Standard renoviert wurden</span></div></div>
     </div>
     <ul class="pointlist">
-      <li><span data-es><strong>Uruguay:</strong> ley 16.906 garantiza igualdad de derechos para inversores extranjeros en bienes raíces.</span><span data-en><strong>Uruguay:</strong> Law 16.906 guarantees equal rights for foreign investors in real estate.</span></li>
-      <li><span data-es><strong>Argentina:</strong> recuperación del mercado — volumen de transacciones +39.7% YoY, precios en mínimos históricos en dólares.</span><span data-en><strong>Argentina:</strong> market recovery — transaction volume +39.7% YoY, prices at historic USD lows.</span></li>
-      <li><span data-es><strong>Garzón / Punta del Este:</strong> la zona de mayor valorización del Cono Sur — viñedos, chacras y estancias en fuerte demanda.</span><span data-en><strong>Garzón / Punta del Este:</strong> the highest-appreciation area in the Southern Cone — vineyards, ranches and estates in strong demand.</span></li>
+      <li><span data-es><strong>Uruguay:</strong> ley 16.906 garantiza igualdad de derechos para inversores extranjeros en bienes raíces.</span><span data-en><strong>Uruguay:</strong> Law 16.906 guarantees equal rights for foreign investors in real estate.</span><span data-fr><strong>Uruguay&nbsp;:</strong> la loi 16.906 garantit aux investisseurs étrangers l’égalité des droits en matière immobilière.</span><span data-de><strong>Uruguay:</strong> Das Gesetz Nr. 16.906 garantiert ausländischen Investoren beim Immobilienerwerb die gleichen Rechte wie Inländern.</span></li>
+      <li><span data-es><strong>Argentina:</strong> recuperación del mercado — volumen de transacciones +39.7% YoY, precios en mínimos históricos en dólares.</span><span data-en><strong>Argentina:</strong> market recovery — transaction volume +39.7% YoY, prices at historic USD lows.</span><span data-fr><strong>Argentine&nbsp;:</strong> reprise du marché — volume de transactions +39,7&nbsp;% sur un an, prix au plus bas historique en dollars.</span><span data-de><strong>Argentinien:</strong> Markterholung — Transaktionsvolumen +39,7&nbsp;% gegenüber dem Vorjahr, Preise in US-Dollar auf historischem Tiefstand.</span></li>
+      <li><span data-es><strong>Garzón / Punta del Este:</strong> la zona de mayor valorización del Cono Sur — viñedos, chacras y estancias en fuerte demanda.</span><span data-en><strong>Garzón / Punta del Este:</strong> the highest-appreciation area in the Southern Cone — vineyards, ranches and estates in strong demand.</span><span data-fr><strong>Garzón / Punta del Este&nbsp;:</strong> la région à plus forte valorisation du Cône Sud — vignobles, fermes et domaines très recherchés.</span><span data-de><strong>Garzón / Punta del Este:</strong> die Region mit der höchsten Wertsteigerung im südlichen Südamerika — Weingüter, Landsitze und Estancias sind stark gefragt.</span></li>
     </ul>
   </div>
 </section>
@@ -247,24 +259,24 @@
 <section id="target">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span data-es>A Quién Servimos</span><span data-en>Who We Serve</span></div>
-      <h2><span data-es>Un cliente, un interlocutor</span><span data-en>One client, one point of contact</span></h2>
+      <div class="eyebrow"><span data-es>A Quién Servimos</span><span data-en>Who We Serve</span><span data-fr>Notre clientèle</span><span data-de>Unsere Mandanten</span></div>
+      <h2><span data-es>Un cliente, un interlocutor</span><span data-en>One client, one point of contact</span><span data-fr>Un client, un seul interlocuteur</span><span data-de>Ein Mandant, ein Ansprechpartner</span></h2>
     </div>
     <div class="cards cards-3">
       <div class="card">
-        <div class="klabel"><span data-es>Clientes Europeos y Americanos</span><span data-en>European &amp; American Clients</span></div>
-        <h3><span data-es>Diversificación y lifestyle</span><span data-en>Diversification & lifestyle</span></h3>
-        <p><span data-es>Clientes europeos y americanos que buscan diversificar fuera de su mercado, una base segura en el hemisferio sur y activos lifestyle: estancias y chacras boutique.</span><span data-en>European and American clients looking to diversify beyond their home market, secure a base in the southern hemisphere and own lifestyle assets: estates and boutique ranches.</span></p>
+        <div class="klabel"><span data-es>Clientes Europeos y Americanos</span><span data-en>European &amp; American Clients</span><span data-fr>Clients européens &amp; américains</span><span data-de>Europäische &amp; amerikanische Mandanten</span></div>
+        <h3><span data-es>Diversificación y lifestyle</span><span data-en>Diversification & lifestyle</span><span data-fr>Diversification & art de vivre</span><span data-de>Diversifikation & Lifestyle</span></h3>
+        <p><span data-es>Clientes europeos y americanos que buscan diversificar fuera de su mercado, una base segura en el hemisferio sur y activos lifestyle: estancias y chacras boutique.</span><span data-en>European and American clients looking to diversify beyond their home market, secure a base in the southern hemisphere and own lifestyle assets: estates and boutique ranches.</span><span data-fr>Des clients européens et américains qui souhaitent se diversifier hors de leur marché d’origine, s’assurer une base sûre dans l’hémisphère sud et détenir des actifs de prestige&nbsp;: estancias et domaines de charme.</span><span data-de>Europäische und amerikanische Mandanten, die außerhalb ihres Heimatmarkts diversifizieren, sich eine sichere Basis auf der Südhalbkugel schaffen und Lifestyle-Immobilien besitzen möchten: Estancias und exklusive Landsitze.</span></p>
       </div>
       <div class="card">
-        <div class="klabel"><span data-es>Family &amp; Multifamily Offices</span><span data-en>Family &amp; Multifamily Offices</span></div>
-        <h3><span data-es>Activos alternativos sólidos</span><span data-en>Solid alternative assets</span></h3>
-        <p><span data-es>Requieren due diligence riguroso y estructuras legales sólidas, con baja correlación a mercados financieros.</span><span data-en>Requiring rigorous due diligence and robust legal structures, with low correlation to financial markets.</span></p>
+        <div class="klabel"><span data-es>Family &amp; Multifamily Offices</span><span data-en>Family &amp; Multifamily Offices</span><span data-fr>Family &amp; Multifamily Offices</span><span data-de>Family &amp; Multi-Family Offices</span></div>
+        <h3><span data-es>Activos alternativos sólidos</span><span data-en>Solid alternative assets</span><span data-fr>Des actifs alternatifs solides</span><span data-de>Solide alternative Anlagen</span></h3>
+        <p><span data-es>Requieren due diligence riguroso y estructuras legales sólidas, con baja correlación a mercados financieros.</span><span data-en>Requiring rigorous due diligence and robust legal structures, with low correlation to financial markets.</span><span data-fr>Ils exigent une due diligence rigoureuse et des structures juridiques solides, avec une faible corrélation aux marchés financiers.</span><span data-de>Sie verlangen eine gründliche Due Diligence und belastbare rechtliche Strukturen — bei geringer Korrelation zu den Finanzmärkten.</span></p>
       </div>
       <div class="card">
-        <div class="klabel"><span data-es>Vinculación Cultural</span><span data-en>Cultural Ties</span></div>
-        <h3><span data-es>Repatriar bajo estructura</span><span data-en>Repatriate with structure</span></h3>
-        <p><span data-es>Latinoamericanos con patrimonio en el exterior que buscan invertir bajo estructuras seguras, incluida la compra de empresas.</span><span data-en>Latin Americans with offshore wealth seeking to invest under secure structures, including company acquisitions.</span></p>
+        <div class="klabel"><span data-es>Vinculación Cultural</span><span data-en>Cultural Ties</span><span data-fr>Liens culturels</span><span data-de>Kulturelle Verbundenheit</span></div>
+        <h3><span data-es>Repatriar bajo estructura</span><span data-en>Repatriate with structure</span><span data-fr>Rapatrier dans un cadre structuré</span><span data-de>Strukturiert zurückinvestieren</span></h3>
+        <p><span data-es>Latinoamericanos con patrimonio en el exterior que buscan invertir bajo estructuras seguras, incluida la compra de empresas.</span><span data-en>Latin Americans with offshore wealth seeking to invest under secure structures, including company acquisitions.</span><span data-fr>Des Latino-Américains disposant d’un patrimoine à l’étranger qui souhaitent investir au travers de structures sûres, y compris par l’acquisition d’entreprises.</span><span data-de>Lateinamerikaner mit Vermögen im Ausland, die über sichere Strukturen investieren möchten — einschließlich Unternehmenskäufen.</span></p>
       </div>
     </div>
   </div>
@@ -283,17 +295,17 @@
 <section id="servicios" class="bg-cream">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span data-es>Nuestros Servicios</span><span data-en>Our Services</span></div>
-      <h2><span data-es>De la idea al cierre — y más allá</span><span data-en>From the idea to closing — and beyond</span></h2>
-      <p><span data-es>Un solo interlocutor para toda la vida del activo. Sin intermediarios ocultos, 100% del lado del comprador.</span><span data-en>A single point of contact for the entire life of the asset. No hidden intermediaries, 100% on the buyer's side.</span></p>
+      <div class="eyebrow"><span data-es>Nuestros Servicios</span><span data-en>Our Services</span><span data-fr>Nos services</span><span data-de>Unsere Leistungen</span></div>
+      <h2><span data-es>De la idea al cierre — y más allá</span><span data-en>From the idea to closing — and beyond</span><span data-fr>De l’idée à la signature — et au-delà</span><span data-de>Von der Idee bis zum Closing — und darüber hinaus</span></h2>
+      <p><span data-es>Un solo interlocutor para toda la vida del activo. Sin intermediarios ocultos, 100% del lado del comprador.</span><span data-en>A single point of contact for the entire life of the asset. No hidden intermediaries, 100% on the buyer's side.</span><span data-fr>Un interlocuteur unique pendant toute la vie de l’actif. Aucun intermédiaire caché, 100&nbsp;% du côté de l’acheteur.</span><span data-de>Ein einziger Ansprechpartner über den gesamten Lebenszyklus der Immobilie. Keine versteckten Vermittler, 100&nbsp;% auf der Seite des Käufers.</span></p>
     </div>
     <div class="services">
-      <div class="svc"><div class="no">01</div><h3><span data-es>Búsqueda y selección</span><span data-en>Sourcing & selection</span></h3><p><span data-es>Acceso a propiedades off-market. Análisis comparativo y valuación independiente.</span><span data-en>Access to off-market properties. Comparative analysis and independent valuation.</span></p></div>
-      <div class="svc"><div class="no">02</div><h3><span data-es>Due diligence</span><span data-en>Due diligence</span></h3><p><span data-es>Legal, catastral, ambiental y técnico, con estudios jurídicos locales de primer nivel.</span><span data-en>Legal, cadastral, environmental and technical, with top-tier local law firms.</span></p></div>
-      <div class="svc"><div class="no">03</div><h3><span data-es>Estructuración legal</span><span data-en>Legal structuring</span></h3><p><span data-es>Sociedades, fideicomiso y planificación patrimonial para no residentes.</span><span data-en>Companies, trusts and wealth planning for non-residents.</span></p></div>
-      <div class="svc"><div class="no">04</div><h3><span data-es>Negociación y closing</span><span data-en>Negotiation & closing</span></h3><p><span data-es>Representación integral del comprador. Coordinación de escribanías, bancos y proveedores.</span><span data-en>Full buyer representation. Coordination of notaries, banks and providers.</span></p></div>
-      <div class="svc"><div class="no">05</div><h3><span data-es>Trámites migratorios</span><span data-en>Residency & relocation</span></h3><p><span data-es>Residencia fiscal y legal en Uruguay y Argentina, con asesores especializados.</span><span data-en>Tax and legal residency in Uruguay and Argentina, with specialized advisors.</span></p></div>
-      <div class="svc"><div class="no">06</div><h3><span data-es>Post-compra</span><span data-en>Post-purchase</span></h3><p><span data-es>Gestión, mantenimiento, arquitectura, contabilidad y administración impositiva.</span><span data-en>Management, maintenance, architecture, accounting and tax administration.</span></p></div>
+      <div class="svc"><div class="no">01</div><h3><span data-es>Búsqueda y selección</span><span data-en>Sourcing & selection</span><span data-fr>Recherche & sélection</span><span data-de>Suche & Auswahl</span></h3><p><span data-es>Acceso a propiedades off-market. Análisis comparativo y valuación independiente.</span><span data-en>Access to off-market properties. Comparative analysis and independent valuation.</span><span data-fr>Accès à des biens off-market. Analyse comparative et évaluation indépendante.</span><span data-de>Zugang zu Off-Market-Objekten. Vergleichsanalyse und unabhängige Bewertung.</span></p></div>
+      <div class="svc"><div class="no">02</div><h3><span data-es>Due diligence</span><span data-en>Due diligence</span><span data-fr>Due diligence</span><span data-de>Due Diligence</span></h3><p><span data-es>Legal, catastral, ambiental y técnico, con estudios jurídicos locales de primer nivel.</span><span data-en>Legal, cadastral, environmental and technical, with top-tier local law firms.</span><span data-fr>Juridique, cadastrale, environnementale et technique, avec des cabinets d’avocats locaux de premier plan.</span><span data-de>Rechtliche, katasterrechtliche, ökologische und technische Prüfung — mit führenden lokalen Kanzleien.</span></p></div>
+      <div class="svc"><div class="no">03</div><h3><span data-es>Estructuración legal</span><span data-en>Legal structuring</span><span data-fr>Structuration juridique</span><span data-de>Rechtliche Strukturierung</span></h3><p><span data-es>Sociedades, fideicomiso y planificación patrimonial para no residentes.</span><span data-en>Companies, trusts and wealth planning for non-residents.</span><span data-fr>Sociétés, fiducies et planification patrimoniale pour non-résidents.</span><span data-de>Gesellschaften, Treuhandstrukturen und Vermögensplanung für Nichtansässige.</span></p></div>
+      <div class="svc"><div class="no">04</div><h3><span data-es>Negociación y closing</span><span data-en>Negotiation & closing</span><span data-fr>Négociation & signature</span><span data-de>Verhandlung & Closing</span></h3><p><span data-es>Representación integral del comprador. Coordinación de escribanías, bancos y proveedores.</span><span data-en>Full buyer representation. Coordination of notaries, banks and providers.</span><span data-fr>Représentation complète de l’acheteur. Coordination des notaires, banques et prestataires.</span><span data-de>Umfassende Käufervertretung. Koordination von Notaren, Banken und Dienstleistern.</span></p></div>
+      <div class="svc"><div class="no">05</div><h3><span data-es>Trámites migratorios</span><span data-en>Residency & relocation</span><span data-fr>Résidence & installation</span><span data-de>Aufenthalt & Relocation</span></h3><p><span data-es>Residencia fiscal y legal en Uruguay y Argentina, con asesores especializados.</span><span data-en>Tax and legal residency in Uruguay and Argentina, with specialized advisors.</span><span data-fr>Résidence fiscale et légale en Uruguay et en Argentine, avec des conseillers spécialisés.</span><span data-de>Steuerlicher und rechtlicher Wohnsitz in Uruguay und Argentinien — mit spezialisierten Beratern.</span></p></div>
+      <div class="svc"><div class="no">06</div><h3><span data-es>Post-compra</span><span data-en>Post-purchase</span><span data-fr>Après l’acquisition</span><span data-de>Nach dem Kauf</span></h3><p><span data-es>Gestión, mantenimiento, arquitectura, contabilidad y administración impositiva.</span><span data-en>Management, maintenance, architecture, accounting and tax administration.</span><span data-fr>Gestion, entretien, architecture, comptabilité et administration fiscale.</span><span data-de>Verwaltung, Instandhaltung, Architektur, Buchhaltung und Steuerangelegenheiten.</span></p></div>
     </div>
   </div>
 </section>
@@ -302,30 +314,30 @@
 <section id="ofrecemos" class="bg-forest">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span data-es>Lo Que Ofrecemos</span><span data-en>What We Offer</span></div>
-      <h2><span data-es>Activos reales, seleccionados uno por uno</span><span data-en>Real assets, hand-selected one by one</span></h2>
-      <p><span data-es>Campos, chacras y residencias de lujo en las mejores zonas de Argentina y Uruguay. Clickeá cada categoría para ver ejemplos.</span><span data-en>Farms, ranches and luxury residences in the finest areas of Argentina and Uruguay. Click each category to see examples.</span></p>
+      <div class="eyebrow"><span data-es>Lo Que Ofrecemos</span><span data-en>What We Offer</span><span data-fr>Notre offre</span><span data-de>Unser Angebot</span></div>
+      <h2><span data-es>Activos reales, seleccionados uno por uno</span><span data-en>Real assets, hand-selected one by one</span><span data-fr>Des actifs réels, sélectionnés un par un</span><span data-de>Sachwerte, einzeln ausgewählt</span></h2>
+      <p><span data-es>Campos, chacras y residencias de lujo en las mejores zonas de Argentina y Uruguay. Clickeá cada categoría para ver ejemplos.</span><span data-en>Farms, ranches and luxury residences in the finest areas of Argentina and Uruguay. Click each category to see examples.</span><span data-fr>Terres agricoles, domaines et résidences de luxe dans les plus belles régions d’Argentine et d’Uruguay. Cliquez sur chaque catégorie pour voir des exemples.</span><span data-de>Agrarflächen, Landsitze und Luxusresidenzen in den besten Lagen Argentiniens und Uruguays. Klicken Sie auf eine Kategorie, um Beispiele zu sehen.</span></p>
     </div>
     <div class="offer">
       <div class="offer-card" onclick="openLB('campos')" style="background-image:url('https://images.pexels.com/photos/8156811/pexels-photo-8156811.jpeg?auto=compress&cs=tinysrgb&w=1400')">
         <div class="offer-ov">
-          <div class="offer-k"><span data-es>Campos &amp; Estancias</span><span data-en>Farms &amp; Estates</span></div>
-          <div class="offer-t"><span data-es>Activos agropecuarios y ganaderos</span><span data-en>Agricultural &amp; livestock land</span></div>
-          <span class="offer-more"><span data-es>Ver más →</span><span data-en>See more →</span></span>
+          <div class="offer-k"><span data-es>Campos &amp; Estancias</span><span data-en>Farms &amp; Estates</span><span data-fr>Terres agricoles &amp; Estancias</span><span data-de>Agrarland &amp; Estancias</span></div>
+          <div class="offer-t"><span data-es>Activos agropecuarios y ganaderos</span><span data-en>Agricultural &amp; livestock land</span><span data-fr>Terres agricoles et d’élevage</span><span data-de>Acker- und Weideland</span></div>
+          <span class="offer-more"><span data-es>Ver más →</span><span data-en>See more →</span><span data-fr>Voir plus →</span><span data-de>Mehr sehen →</span></span>
         </div>
       </div>
       <div class="offer-card" onclick="openLB('chacras')" style="background-image:url('https://static.wixstatic.com/media/9c06de_0c34df9bc906400da5c4d0f059ff231cf000.jpg/v1/fill/w_1000,h_700,al_c,q_85,enc_avif,quality_auto/9c06de_0c34df9bc906400da5c4d0f059ff231cf000.jpg')">
         <div class="offer-ov">
-          <div class="offer-k"><span data-es>Chacras</span><span data-en>Country Estates</span></div>
-          <div class="offer-t"><span data-es>Chacras boutique con casa de campo</span><span data-en>Boutique estates with country homes</span></div>
-          <span class="offer-more"><span data-es>Ver más →</span><span data-en>See more →</span></span>
+          <div class="offer-k"><span data-es>Chacras</span><span data-en>Country Estates</span><span data-fr>Domaines de campagne</span><span data-de>Landsitze</span></div>
+          <div class="offer-t"><span data-es>Chacras boutique con casa de campo</span><span data-en>Boutique estates with country homes</span><span data-fr>Domaines de charme avec maison de campagne</span><span data-de>Exklusive Landsitze mit Landhaus</span></div>
+          <span class="offer-more"><span data-es>Ver más →</span><span data-en>See more →</span><span data-fr>Voir plus →</span><span data-de>Mehr sehen →</span></span>
         </div>
       </div>
       <div class="offer-card" onclick="openLB('lujo')" style="background-image:url('lujo-depto-2.jpeg')">
         <div class="offer-ov">
-          <div class="offer-k"><span data-es>Propiedades de Lujo</span><span data-en>Luxury Residences</span></div>
-          <div class="offer-t"><span data-es>Residencias premium en Buenos Aires y Punta del Este</span><span data-en>Premium residences in Buenos Aires &amp; Punta del Este</span></div>
-          <span class="offer-more"><span data-es>Ver más →</span><span data-en>See more →</span></span>
+          <div class="offer-k"><span data-es>Propiedades de Lujo</span><span data-en>Luxury Residences</span><span data-fr>Résidences de luxe</span><span data-de>Luxusresidenzen</span></div>
+          <div class="offer-t"><span data-es>Residencias premium en Buenos Aires y Punta del Este</span><span data-en>Premium residences in Buenos Aires &amp; Punta del Este</span><span data-fr>Résidences haut de gamme à Buenos Aires &amp; Punta del Este</span><span data-de>Premium-Residenzen in Buenos Aires &amp; Punta del Este</span></div>
+          <span class="offer-more"><span data-es>Ver más →</span><span data-en>See more →</span><span data-fr>Voir plus →</span><span data-de>Mehr sehen →</span></span>
         </div>
       </div>
     </div>
@@ -336,7 +348,7 @@
 <div class="divider" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=80')">
   <div class="quote">
     <span data-es>"Las mejores oportunidades no se publicitan — <span class="gold">se consiguen.</span>"</span>
-    <span data-en>"The best opportunities aren't advertised — <span class="gold">they're sourced.</span>"</span>
+    <span data-en>"The best opportunities aren't advertised — <span class="gold">they're sourced.</span>"</span><span data-fr>«&nbsp;Les meilleures opportunités ne s’affichent pas — <span class="gold">elles se dénichent.</span>&nbsp;»</span><span data-de>„Die besten Gelegenheiten werden nicht beworben — <span class="gold">man findet sie.</span>“</span>
   </div>
 </div>
 
@@ -345,21 +357,21 @@
   <div class="case">
     <div class="case-img" onclick="openLB('tertulia')" style="cursor:pointer"></div>
     <div class="case-body">
-      <div class="eyebrow"><span data-es>Caso de Estudio</span><span data-en>Case Study</span></div>
+      <div class="eyebrow"><span data-es>Caso de Estudio</span><span data-en>Case Study</span><span data-fr>Étude de cas</span><span data-de>Referenzprojekt</span></div>
       <h2>La Tertulia</h2>
       <div class="loc">Garzón, Maldonado — Uruguay</div>
       <ul>
-        <li><span data-es>107 hectáreas · Casa principal de 800 m² con vistas panorámicas 360°</span><span data-en>107 hectares · 800 m² main house with 360° panoramic views</span></li>
-        <li><span data-es>A 10 minutos de Garzón, cerca de Bodega Garzón</span><span data-en>10 minutes from Garzón, near Bodega Garzón</span></li>
-        <li><span data-es>Piscina, senderos privados y naturaleza en estado puro</span><span data-en>Pool, private trails and nature at its purest</span></li>
-        <li><span data-es>Operación acompañada de punta a punta por Tango Holding</span><span data-en>End-to-end transaction guided by Tango Holding</span></li>
-        <li><span data-es>Zona de Bodega Garzón — alto potencial de valorización</span><span data-en>Bodega Garzón area — strong appreciation potential</span></li>
+        <li><span data-es>107 hectáreas · Casa principal de 800 m² con vistas panorámicas 360°</span><span data-en>107 hectares · 800 m² main house with 360° panoramic views</span><span data-fr>107 hectares · maison principale de 800 m² avec vue panoramique à 360°</span><span data-de>107 Hektar · 800 m² großes Haupthaus mit 360°-Panoramablick</span></li>
+        <li><span data-es>A 10 minutos de Garzón, cerca de Bodega Garzón</span><span data-en>10 minutes from Garzón, near Bodega Garzón</span><span data-fr>À 10 minutes de Garzón, près de Bodega Garzón</span><span data-de>10 Minuten von Garzón, nahe der Bodega Garzón</span></li>
+        <li><span data-es>Piscina, senderos privados y naturaleza en estado puro</span><span data-en>Pool, private trails and nature at its purest</span><span data-fr>Piscine, sentiers privés et nature à l’état pur</span><span data-de>Pool, private Wanderwege und unberührte Natur</span></li>
+        <li><span data-es>Operación acompañada de punta a punta por Tango Holding</span><span data-en>End-to-end transaction guided by Tango Holding</span><span data-fr>Transaction accompagnée de bout en bout par Tango Holding</span><span data-de>Transaktion von Anfang bis Ende von Tango Holding begleitet</span></li>
+        <li><span data-es>Zona de Bodega Garzón — alto potencial de valorización</span><span data-en>Bodega Garzón area — strong appreciation potential</span><span data-fr>Secteur de Bodega Garzón — fort potentiel de valorisation</span><span data-de>Umgebung der Bodega Garzón — hohes Wertsteigerungspotenzial</span></li>
       </ul>
       <p style="color:rgba(255,255,255,.7);font-size:.98rem;margin-top:10px">
         <span data-es>Las mejores oportunidades no se publicitan — se consiguen. Discreción, criterio y acompañamiento integral en cada operación.</span>
-        <span data-en>The best opportunities aren't advertised — they're sourced. Discretion, judgment and full support on every transaction.</span>
+        <span data-en>The best opportunities aren't advertised — they're sourced. Discretion, judgment and full support on every transaction.</span><span data-fr>Les meilleures opportunités ne s’affichent pas — elles se dénichent. Discrétion, discernement et accompagnement complet à chaque transaction.</span><span data-de>Die besten Gelegenheiten werden nicht beworben — man findet sie. Diskretion, Urteilsvermögen und umfassende Begleitung bei jeder Transaktion.</span>
       </p>
-      <button class="btn btn-gold" style="margin-top:22px" onclick="openLB('tertulia')"><span data-es>Ver galería</span><span data-en>View gallery</span></button>
+      <button class="btn btn-gold" style="margin-top:22px" onclick="openLB('tertulia')"><span data-es>Ver galería</span><span data-en>View gallery</span><span data-fr>Voir la galerie</span><span data-de>Galerie ansehen</span></button>
     </div>
   </div>
 </section>
@@ -368,16 +380,16 @@
 <section id="porque" class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=2000&q=80')">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow"><span data-es>Por Qué Tango</span><span data-en>Why Tango</span></div>
-      <h2><span data-es>Nuestra ventaja diferencial</span><span data-en>Our edge</span></h2>
+      <div class="eyebrow"><span data-es>Por Qué Tango</span><span data-en>Why Tango</span><span data-fr>Pourquoi Tango</span><span data-de>Warum Tango</span></div>
+      <h2><span data-es>Nuestra ventaja diferencial</span><span data-en>Our edge</span><span data-fr>Notre différence</span><span data-de>Unser Vorsprung</span></h2>
     </div>
     <div class="services">
-      <div class="svc"><h3><span data-es>15 años de track record</span><span data-en>15-year track record</span></h3><p><span data-es>Experiencia comprobada asesorando familias en real estate internacional.</span><span data-en>Proven experience advising families in international real estate.</span></p></div>
-      <div class="svc"><h3><span data-es>Red de contactos exclusivos</span><span data-en>Exclusive network</span></h3><p><span data-es>Diplomáticos, family offices y bancos privados europeos. Socios locales de primer nivel en BA y Montevideo.</span><span data-en>Diplomats, family offices and European private banks. Top-tier local partners in BA and Montevideo.</span></p></div>
-      <div class="svc"><h3><span data-es>100% del lado del comprador</span><span data-en>100% buyer-side</span></h3><p><span data-es>No representamos vendedores ni desarrolladores. Sin conflictos de interés.</span><span data-en>We don't represent sellers or developers. No conflicts of interest.</span></p></div>
-      <div class="svc"><h3><span data-es>Ecosistema completo</span><span data-en>Full ecosystem</span></h3><p><span data-es>Legal, contable, arquitectura, mantenimiento — todo coordinado por un solo interlocutor.</span><span data-en>Legal, accounting, architecture, maintenance — all coordinated by a single point of contact.</span></p></div>
-      <div class="svc"><h3><span data-es>Bilingüe y multicultural</span><span data-en>Bilingual & multicultural</span></h3><p><span data-es>Servicio en español e inglés. Entendemos la lógica del inversor europeo y norteamericano.</span><span data-en>Service in Spanish and English. We understand the European and North American investor.</span></p></div>
-      <div class="svc"><h3><span data-es>Respaldo de Tango Holding</span><span data-en>Backed by Tango Holding</span></h3><p><span data-es>Marca consolidada, reputación institucional y estructura profesional: contratos, NDAs y reporting formal.</span><span data-en>An established brand, institutional reputation and professional structure: contracts, NDAs and formal reporting.</span></p></div>
+      <div class="svc"><h3><span data-es>15 años de track record</span><span data-en>15-year track record</span><span data-fr>15 ans d’expérience</span><span data-de>15 Jahre Erfahrung</span></h3><p><span data-es>Experiencia comprobada asesorando familias en real estate internacional.</span><span data-en>Proven experience advising families in international real estate.</span><span data-fr>Une expérience éprouvée dans le conseil aux familles en immobilier international.</span><span data-de>Nachweisliche Erfahrung in der Beratung von Familien bei internationalen Immobilien.</span></p></div>
+      <div class="svc"><h3><span data-es>Red de contactos exclusivos</span><span data-en>Exclusive network</span><span data-fr>Un réseau exclusif</span><span data-de>Exklusives Netzwerk</span></h3><p><span data-es>Diplomáticos, family offices y bancos privados europeos. Socios locales de primer nivel en BA y Montevideo.</span><span data-en>Diplomats, family offices and European private banks. Top-tier local partners in BA and Montevideo.</span><span data-fr>Diplomates, family offices et banques privées européennes. Partenaires locaux de premier plan à Buenos Aires et Montevideo.</span><span data-de>Diplomaten, Family Offices und europäische Privatbanken. Führende lokale Partner in Buenos Aires und Montevideo.</span></p></div>
+      <div class="svc"><h3><span data-es>100% del lado del comprador</span><span data-en>100% buyer-side</span><span data-fr>100&nbsp;% côté acheteur</span><span data-de>100&nbsp;% auf Käuferseite</span></h3><p><span data-es>No representamos vendedores ni desarrolladores. Sin conflictos de interés.</span><span data-en>We don't represent sellers or developers. No conflicts of interest.</span><span data-fr>Nous ne représentons ni vendeurs ni promoteurs. Aucun conflit d’intérêts.</span><span data-de>Wir vertreten weder Verkäufer noch Bauträger. Keine Interessenkonflikte.</span></p></div>
+      <div class="svc"><h3><span data-es>Ecosistema completo</span><span data-en>Full ecosystem</span><span data-fr>Un écosystème complet</span><span data-de>Alles aus einer Hand</span></h3><p><span data-es>Legal, contable, arquitectura, mantenimiento — todo coordinado por un solo interlocutor.</span><span data-en>Legal, accounting, architecture, maintenance — all coordinated by a single point of contact.</span><span data-fr>Juridique, comptabilité, architecture, entretien — le tout coordonné par un interlocuteur unique.</span><span data-de>Recht, Buchhaltung, Architektur, Instandhaltung — alles koordiniert durch einen einzigen Ansprechpartner.</span></p></div>
+      <div class="svc"><h3><span data-es>Bilingüe y multicultural</span><span data-en>Bilingual & multicultural</span><span data-fr>Bilingue & multiculturel</span><span data-de>Zweisprachig & multikulturell</span></h3><p><span data-es>Servicio en español e inglés. Entendemos la lógica del inversor europeo y norteamericano.</span><span data-en>Service in Spanish and English. We understand the European and North American investor.</span><span data-fr>Service en espagnol et en anglais. Nous comprenons la logique de l’investisseur européen et nord-américain.</span><span data-de>Betreuung auf Spanisch und Englisch. Wir verstehen die Denkweise europäischer und nordamerikanischer Investoren.</span></p></div>
+      <div class="svc"><h3><span data-es>Respaldo de Tango Holding</span><span data-en>Backed by Tango Holding</span><span data-fr>Adossé à Tango Holding</span><span data-de>Rückhalt durch Tango Holding</span></h3><p><span data-es>Marca consolidada, reputación institucional y estructura profesional: contratos, NDAs y reporting formal.</span><span data-en>An established brand, institutional reputation and professional structure: contracts, NDAs and formal reporting.</span><span data-fr>Une marque établie, une réputation institutionnelle et une structure professionnelle&nbsp;: contrats, NDA et reporting formel.</span><span data-de>Eine etablierte Marke, institutionelle Reputation und professionelle Strukturen: Verträge, NDAs und formelles Reporting.</span></p></div>
     </div>
   </div>
 </section>
@@ -387,20 +399,21 @@
   <div class="wrap">
     <div class="contact">
       <div>
-        <h2><span data-es>Empecemos a construir juntos.</span><span data-en>Let's start building together.</span></h2>
-        <p><span data-es>Una llamada inicial de 30 minutos para entender tus objetivos y el perfil del inversor. Sin compromiso.</span><span data-en>An initial 30-minute call to understand your goals and investor profile. No commitment.</span></p>
+        <h2><span data-es>Empecemos a construir juntos.</span><span data-en>Let's start building together.</span><span data-fr>Construisons ensemble.</span><span data-de>Lassen Sie uns gemeinsam beginnen.</span></h2>
+        <p><span data-es>Una llamada inicial de 30 minutos para entender tus objetivos y el perfil del inversor. Sin compromiso.</span><span data-en>An initial 30-minute call to understand your goals and investor profile. No commitment.</span><span data-fr>Un premier appel de 30 minutes pour comprendre vos objectifs et votre profil d’investisseur. Sans engagement.</span><span data-de>Ein erstes 30-minütiges Gespräch, um Ihre Ziele und Ihr Anlegerprofil zu verstehen. Unverbindlich.</span></p>
         <div class="info">
           www.tangoholding.com
         </div>
       </div>
       <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?enviado=ok">
         <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="lang" id="f-lang" value="en">
         <p style="display:none"><label>No llenar: <input name="bot-field"></label></p>
-        <input type="text" name="name" placeholder="Nombre / Name" required>
+        <input type="text" name="name" id="f-name" placeholder="Nombre / Name" required>
         <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="country" placeholder="País / Country">
-        <textarea name="message" rows="4" placeholder="¿En qué podemos ayudarte? / How can we help?"></textarea>
-        <button type="submit" class="btn btn-gold" style="justify-self:start"><span data-es>Enviar consulta</span><span data-en>Send inquiry</span></button>
+        <input type="text" name="country" id="f-country" placeholder="País / Country">
+        <textarea name="message" id="f-message" rows="4" placeholder="¿En qué podemos ayudarte? / How can we help?"></textarea>
+        <button type="submit" class="btn btn-gold" style="justify-self:start"><span data-es>Enviar consulta</span><span data-en>Send inquiry</span><span data-fr>Envoyer la demande</span><span data-de>Anfrage senden</span></button>
       </form>
     </div>
   </div>
@@ -423,16 +436,40 @@
 
 <footer>
   <div class="fbrand">Tango Holding · Río de la Plata</div>
-  <div>Private Wealth Real Estate &nbsp;·&nbsp; Argentina &amp; Uruguay &nbsp;·&nbsp; <span data-es>Confidencial</span><span data-en>Confidential</span> · 2026</div>
+  <div>Private Wealth Real Estate &nbsp;·&nbsp; Argentina &amp; Uruguay &nbsp;·&nbsp; <span data-es>Confidencial</span><span data-en>Confidential</span><span data-fr>Confidentiel</span><span data-de>Vertraulich</span> · 2026</div>
 </footer>
 
 <script>
+  var LANGS=['en','es','fr','de'];
+  var PH={
+    name:{es:'Nombre',en:'Name',fr:'Nom',de:'Name'},
+    country:{es:'País',en:'Country',fr:'Pays',de:'Land'},
+    message:{es:'¿En qué podemos ayudarte?',en:'How can we help?',fr:'Comment pouvons-nous vous aider\u00a0?',de:'Wie können wir Ihnen helfen?'}
+  };
   function setLang(l){
-    document.body.classList.toggle('en', l==='en');
+    if(LANGS.indexOf(l)<0) l='en';
+    LANGS.forEach(function(x){
+      if(x!=='es') document.body.classList.toggle(x, x===l);
+      document.getElementById('btn-'+x).classList.toggle('active', x===l);
+    });
     document.documentElement.lang=l;
-    document.getElementById('btn-es').classList.toggle('active', l==='es');
-    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    for(var k in PH){ var el=document.getElementById('f-'+k); if(el) el.placeholder=PH[k][l]; }
+    var fl=document.getElementById('f-lang'); if(fl) fl.value=l;
+    try{ localStorage.setItem('tango-lang', l); }catch(e){}
+    try{
+      var u=new URL(location.href);
+      if(l==='en') u.searchParams.delete('lang'); else u.searchParams.set('lang', l);
+      history.replaceState(null,'',u.pathname+u.search+u.hash);
+    }catch(e){}
     if(document.getElementById('lightbox').classList.contains('open')) renderLB();
+  }
+  // Idioma inicial: ?lang=xx  >  última elección del visitante  >  idioma del navegador  >  inglés
+  function initialLang(){
+    try{ var q=new URLSearchParams(location.search).get('lang'); if(q && LANGS.indexOf(q.toLowerCase())>=0) return q.toLowerCase(); }catch(e){}
+    try{ var s=localStorage.getItem('tango-lang'); if(s && LANGS.indexOf(s)>=0) return s; }catch(e){}
+    var nl=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||''];
+    for(var i=0;i<nl.length;i++){ var c=String(nl[i]).slice(0,2).toLowerCase(); if(LANGS.indexOf(c)>=0) return c; }
+    return 'en';
   }
 
   // ===== DATOS DE PROPIEDADES (placeholder — reemplazar fotos/textos por los reales) =====
@@ -443,36 +480,42 @@
 
   const DATA={
     campos:{
-      eyebrow:{es:'Campos & Estancias',en:'Farms & Estates'},
-      title:{es:'Campos & Estancias',en:'Farms & Estates'},
-      loc:{es:'Argentina & Uruguay',en:'Argentina & Uruguay'},
+      eyebrow:{es:'Campos & Estancias',en:'Farms & Estates',fr:'Terres agricoles & Estancias',de:'Agrarland & Estancias'},
+      title:{es:'Campos & Estancias',en:'Farms & Estates',fr:'Terres agricoles & Estancias',de:'Agrarland & Estancias'},
+      loc:{es:'Argentina & Uruguay',en:'Argentina & Uruguay',fr:'Argentine & Uruguay',de:'Argentinien & Uruguay'},
       imgs:[P('18848676'),P('8156811'),P('34096012'),P('12340778')],
       body:{es:'<p>Activos agropecuarios y ganaderos en las regiones más productivas de Argentina y Uruguay. Campos para producción, inversión o lifestyle, con análisis de renta, aptitud de suelo y potencial de valorización.</p><ul><li>Producción agrícola, ganadera y forestal</li><li>Due diligence catastral, ambiental y de títulos</li><li>Estructuración fiscal para no residentes</li></ul>',
-            en:'<p>Agricultural and livestock land in the most productive regions of Argentina and Uruguay. Land for production, investment or lifestyle, with yield analysis, soil suitability and appreciation potential.</p><ul><li>Agricultural, livestock and forestry production</li><li>Cadastral, environmental and title due diligence</li><li>Tax structuring for non-residents</li></ul>'},
-      note:{es:'',en:''}
+            en:'<p>Agricultural and livestock land in the most productive regions of Argentina and Uruguay. Land for production, investment or lifestyle, with yield analysis, soil suitability and appreciation potential.</p><ul><li>Agricultural, livestock and forestry production</li><li>Cadastral, environmental and title due diligence</li><li>Tax structuring for non-residents</li></ul>',
+            fr:'<p>Des terres agricoles et d’élevage dans les régions les plus productives d’Argentine et d’Uruguay. Des terres pour la production, l’investissement ou l’art de vivre, avec analyse de rendement, aptitude des sols et potentiel de valorisation.</p><ul><li>Production agricole, d’élevage et forestière</li><li>Due diligence cadastrale, environnementale et des titres</li><li>Structuration fiscale pour non-résidents</li></ul>',
+            de:'<p>Acker- und Weideland in den produktivsten Regionen Argentiniens und Uruguays. Flächen für Produktion, Kapitalanlage oder Lifestyle — mit Ertragsanalyse, Bodeneignung und Wertsteigerungspotenzial.</p><ul><li>Ackerbau, Viehzucht und Forstwirtschaft</li><li>Kataster-, Umwelt- und Eigentums-Due-Diligence</li><li>Steuerliche Strukturierung für Nichtansässige</li></ul>'},
+      note:{es:'',en:'',fr:'',de:''}
     },
     chacras:{
-      eyebrow:{es:'Chacras',en:'Country Estates'},
-      title:{es:'Chacras boutique',en:'Boutique Country Estates'},
-      loc:{es:'Garzón · Punta del Este · José Ignacio',en:'Garzón · Punta del Este · José Ignacio'},
+      eyebrow:{es:'Chacras',en:'Country Estates',fr:'Domaines de campagne',de:'Landsitze'},
+      title:{es:'Chacras boutique',en:'Boutique Country Estates',fr:'Domaines de charme',de:'Exklusive Landsitze'},
+      loc:{es:'Garzón · Punta del Este · José Ignacio',en:'Garzón · Punta del Este · José Ignacio',fr:'Garzón · Punta del Este · José Ignacio',de:'Garzón · Punta del Este · José Ignacio'},
       imgs:[T('9c06de_0c34df9bc906400da5c4d0f059ff231cf000.jpg'),P('11566340'),T('4f91a6_88324507807a4b749eea6b3e8f10dedc~mv2.jpg'),P('29043808')],
       body:{es:'<p>Chacras boutique con casa de campo en las zonas de mayor demanda del este uruguayo. Combinan disfrute, naturaleza y un activo que se valoriza, cerca de bodegas y de la costa.</p><ul><li>Casa principal, piscina y parque</li><li>Hectáreas con potencial de viñedo u olivar</li><li>Gestión y mantenimiento post-compra</li></ul>',
-            en:'<p>Boutique country estates with a country home in the most sought-after areas of eastern Uruguay. They combine enjoyment, nature and an appreciating asset, close to wineries and the coast.</p><ul><li>Main house, pool and grounds</li><li>Hectares with vineyard or olive-grove potential</li><li>Post-purchase management and maintenance</li></ul>'},
-      note:{es:'',en:''}
+            en:'<p>Boutique country estates with a country home in the most sought-after areas of eastern Uruguay. They combine enjoyment, nature and an appreciating asset, close to wineries and the coast.</p><ul><li>Main house, pool and grounds</li><li>Hectares with vineyard or olive-grove potential</li><li>Post-purchase management and maintenance</li></ul>',
+            fr:'<p>Des domaines de charme avec maison de campagne dans les secteurs les plus prisés de l’est de l’Uruguay. Ils allient plaisir, nature et un actif qui se valorise, à proximité des domaines viticoles et de la côte.</p><ul><li>Maison principale, piscine et parc</li><li>Des hectares propices à la vigne ou à l’olivier</li><li>Gestion et entretien après l’acquisition</li></ul>',
+            de:'<p>Exklusive Landsitze mit Landhaus in den gefragtesten Lagen im Osten Uruguays. Sie verbinden Lebensqualität, Natur und einen Sachwert mit Wertsteigerung — nahe Weingütern und Küste.</p><ul><li>Haupthaus, Pool und Parkanlage</li><li>Flächen mit Potenzial für Weinbau oder Olivenhaine</li><li>Verwaltung und Instandhaltung nach dem Kauf</li></ul>'},
+      note:{es:'',en:'',fr:'',de:''}
     },
     lujo:{
-      eyebrow:{es:'Propiedades de Lujo',en:'Luxury Residences'},
-      title:{es:'Residencias premium',en:'Premium Residences'},
-      loc:{es:'Buenos Aires · Punta del Este',en:'Buenos Aires · Punta del Este'},
+      eyebrow:{es:'Propiedades de Lujo',en:'Luxury Residences',fr:'Résidences de luxe',de:'Luxusresidenzen'},
+      title:{es:'Residencias premium',en:'Premium Residences',fr:'Résidences haut de gamme',de:'Premium-Residenzen'},
+      loc:{es:'Buenos Aires · Punta del Este',en:'Buenos Aires · Punta del Este',fr:'Buenos Aires · Punta del Este',de:'Buenos Aires · Punta del Este'},
       imgs:['lujo-casa-1.jpeg','lujo-casa-2.jpeg','lujo-depto-1.jpeg','lujo-depto-2.jpeg'],
       body:{es:'<p>Residencias premium en las mejores ubicaciones de Buenos Aires y Punta del Este. Departamentos y casas de alta gama, seleccionados por ubicación, calidad constructiva y potencial de reventa.</p><ul><li>Pisos y casas en barrios premium</li><li>Acceso a oportunidades off-market</li><li>Estructuración de compra y residencia</li></ul>',
-            en:'<p>Premium residences in the finest locations of Buenos Aires and Punta del Este. High-end apartments and houses, selected for location, build quality and resale potential.</p><ul><li>Apartments and houses in premium neighborhoods</li><li>Access to off-market opportunities</li><li>Purchase and residency structuring</li></ul>'},
-      note:{es:'',en:''}
+            en:'<p>Premium residences in the finest locations of Buenos Aires and Punta del Este. High-end apartments and houses, selected for location, build quality and resale potential.</p><ul><li>Apartments and houses in premium neighborhoods</li><li>Access to off-market opportunities</li><li>Purchase and residency structuring</li></ul>',
+            fr:'<p>Des résidences haut de gamme dans les meilleurs emplacements de Buenos Aires et de Punta del Este. Appartements et maisons d’exception, sélectionnés pour leur emplacement, leur qualité de construction et leur potentiel de revente.</p><ul><li>Appartements et maisons dans des quartiers prisés</li><li>Accès à des opportunités off-market</li><li>Structuration de l’achat et de la résidence</li></ul>',
+            de:'<p>Premium-Residenzen in den besten Lagen von Buenos Aires und Punta del Este. Hochwertige Wohnungen und Häuser, ausgewählt nach Lage, Bauqualität und Wiederverkaufspotenzial.</p><ul><li>Wohnungen und Häuser in erstklassigen Vierteln</li><li>Zugang zu Off-Market-Gelegenheiten</li><li>Strukturierung von Kauf und Aufenthalt</li></ul>'},
+      note:{es:'',en:'',fr:'',de:''}
     },
     tertulia:{
-      eyebrow:{es:'Caso de Estudio',en:'Case Study'},
-      title:{es:'La Tertulia',en:'La Tertulia'},
-      loc:{es:'Garzón, Maldonado — Uruguay',en:'Garzón, Maldonado — Uruguay'},
+      eyebrow:{es:'Caso de Estudio',en:'Case Study',fr:'Étude de cas',de:'Referenzprojekt'},
+      title:{es:'La Tertulia',en:'La Tertulia',fr:'La Tertulia',de:'La Tertulia'},
+      loc:{es:'Garzón, Maldonado — Uruguay',en:'Garzón, Maldonado — Uruguay',fr:'Garzón, Maldonado — Uruguay',de:'Garzón, Maldonado — Uruguay'},
       imgs:[
         T('9c06de_0c34df9bc906400da5c4d0f059ff231cf000.jpg'),
         T('9c06de_09426cdd78cc49818e07769fb86a608d~mv2.jpg'),
@@ -482,12 +525,14 @@
         T('aad265_cadbba6cfddd45f4be04d0d2c6c186c8~mv2.jpg')
       ],
       body:{es:'<p>Casa principal de 800 m² sobre 107 hectáreas a 10 minutos de Garzón, con vistas panorámicas 360°, piscina y senderos privados. Una propiedad emblemática acompañada de punta a punta por Tango Holding.</p><ul><li>107 hectáreas · Casa principal de 800 m²</li><li>Vistas 360°, piscina y naturaleza</li><li>Zona Bodega Garzón — alto potencial de valorización</li></ul>',
-            en:'<p>800 m² main house on 107 hectares, 10 minutes from Garzón, with 360° panoramic views, a pool and private trails. A landmark property guided end-to-end by Tango Holding.</p><ul><li>107 hectares · 800 m² main house</li><li>360° views, pool and nature</li><li>Bodega Garzón area — strong appreciation potential</li></ul>'},
-      note:{es:'',en:''}
+            en:'<p>800 m² main house on 107 hectares, 10 minutes from Garzón, with 360° panoramic views, a pool and private trails. A landmark property guided end-to-end by Tango Holding.</p><ul><li>107 hectares · 800 m² main house</li><li>360° views, pool and nature</li><li>Bodega Garzón area — strong appreciation potential</li></ul>',
+            fr:'<p>Une maison principale de 800 m² sur 107 hectares, à 10 minutes de Garzón, avec vue panoramique à 360°, piscine et sentiers privés. Une propriété emblématique accompagnée de bout en bout par Tango Holding.</p><ul><li>107 hectares · maison principale de 800 m²</li><li>Vue à 360°, piscine et nature</li><li>Secteur de Bodega Garzón — fort potentiel de valorisation</li></ul>',
+            de:'<p>Ein 800 m² großes Haupthaus auf 107 Hektar, 10 Minuten von Garzón, mit 360°-Panoramablick, Pool und privaten Wanderwegen. Ein herausragendes Anwesen, von Anfang bis Ende von Tango Holding begleitet.</p><ul><li>107 Hektar · 800 m² großes Haupthaus</li><li>360°-Blick, Pool und Natur</li><li>Umgebung der Bodega Garzón — hohes Wertsteigerungspotenzial</li></ul>'},
+      note:{es:'',en:'',fr:'',de:''}
     }
   };
 
-  function curLang(){return document.body.classList.contains('en')?'en':'es';}
+  function curLang(){var c=document.body.classList; return c.contains('en')?'en':c.contains('fr')?'fr':c.contains('de')?'de':'es';}
   let currentKey=null;
 
   function openLB(key){
@@ -512,7 +557,7 @@
     document.body.style.overflow='';
   }
   document.addEventListener('keydown',function(e){ if(e.key==='Escape')closeLB(); });
+  setLang(initialLang());
 </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                 
